@@ -1478,7 +1478,7 @@ textarea {
 
 .footer-section {
     position: relative;
-    background-color: var(--e-global-color-primary);
+    background-color: var(--e-global-color-mostly-black);
     padding: 82px 0 0px;
 }
 
