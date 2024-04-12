@@ -95,7 +95,7 @@ p {
 /* Home Page Header Section Style */
 
 .banner-section-outer {
-    background-image: url('../images/banner_background.jpg');
+    background-image: url('../img/banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -222,7 +222,7 @@ p {
 /* Home Page Banner Section Style */
 
 .banner-section {
-    padding: 250px 0 185px;
+    padding: 50px 0 185px;
 }
 
 .banner-section-outer .banner-section .banner-section-content {
@@ -333,6 +333,10 @@ p {
 
 .choose_us_content {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .choose_us_content h5 {
@@ -450,7 +454,7 @@ p {
 /* Home Page About Us Section Style */
 
 .aboutus_section {
-    background-image: url('../images/aboutus_background.jpg');
+    background-image: url('../img/home_aboutUs_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -570,7 +574,8 @@ p {
 /* Home Page Our Services Section Style */
 
 .our_services_section {
-    background-image: url('../images/our_services_background.png');
+    /* background-image: url('../images/our_services_background.png'); */
+    background-color: var(--e-global-color-primary);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -584,7 +589,7 @@ p {
 
 .our_services_content h5 {
     margin-bottom: 20px;
-    color: var(--e-global-color-white);
+    color: var(--e-global-color-accent);
     letter-spacing: 7.6px;
     padding-left: 12px;
 }
@@ -593,6 +598,7 @@ p {
     margin-bottom: 0;
     color: var(--e-global-color-white);
     padding: 0 180px;
+    font-size: 300%;
 }
 
 .our_services_section .our_services_left_icon {
@@ -640,6 +646,7 @@ p {
 .facilities_section {
     padding: 0 0 130px;
     margin-top: -335px;
+    background-color: #000;
 }
 
 .facilities_image {
@@ -755,7 +762,7 @@ p {
 /* Home Page Testimonials Section Style */
 
 .testimonials_section {
-    background-image: url('../images/testimonials_background.jpg');
+    background-image: url('../img/home_testimonial_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1045,7 +1052,7 @@ p {
 }
 
 .team_member_background_section {
-    background-image: url('../images/team_member_background.png');
+    /* background-image: url('../images/team_member_background.png'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1059,12 +1066,11 @@ p {
 }
 
 .team_member_background_section .team_member_content h5 {
-    color: var(--e-global-color-white);
+    color: var(--e-global-color-primary);
 }
 
 .team_member_background_section .team_member_content h2 {
-    color: var(--e-global-color-white);
-}
+    color: var(--e-global-color-primary);}
 
 .team_member_content h5 {
     margin-bottom: 20px;
@@ -1117,8 +1123,7 @@ p {
 }
 
 .team_member_background_section .team_member_box_lower_portion h5 {
-    color: var(--e-global-color-white);
-}
+    color: var(--e-global-color-primary);}
 
 .team_member_box_lower_portion h5 {
     font-weight: 500;
@@ -1127,8 +1132,7 @@ p {
 }
 
 .team_member_background_section .team_member_box_lower_portion p {
-    color: var(--e-global-color-white);
-}
+    color: var(--e-global-color-primary);}
 
 .team_member_box_lower_portion p {
     color: var(--e-global-color-text);
@@ -1147,7 +1151,7 @@ p {
 
 .team_member_box_content .team_member_box_lower_portion i {
     background-image: linear-gradient(-82deg, var(--e-global-color-accent) 0%, var(--e-global-color-soft-red) 100%);
-    color: var(--e-global-color-white);
+    color: var(--e-global-color-accent);
 }
 
 .team_member_box_lower_portion i {
@@ -1168,15 +1172,15 @@ p {
 }
 
 .team_member_box_content2:hover .team_member_box_lower_portion i {
-    border: 2px solid var(--e-global-color-white);
+    border: 2px solid var(--e-global-color-accent);
     background-color: transparent;
-    color: var(--e-global-color-white);
+    color: var(--e-global-color-accent);
 }
 
 /* Home Page Contact Us Section Style */
 
 .contact_us_section {
-    background-image: url('../images/contact_us_background.jpg');
+    background-image: url('../img/home_contactus_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2692,3 +2696,6 @@ textarea {
     color: var(--e-global-color-secondary);
     background-image: none;
 }
+
+
+
