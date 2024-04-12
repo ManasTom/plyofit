@@ -461,6 +461,14 @@ p {
     padding: 125px 0 160px;
 }
 
+.mission_bg{
+    background-image: url('../img/about_mission_bg.png') !important ;
+}
+
+.vision_bg{
+    background-image: url('../img/about_vision_bg.png') !important ;
+}
+
 .aboutus_image {
     position: relative;
 }
@@ -1639,7 +1647,7 @@ textarea {
 /* About Page Sub Banner Section Style */
 
 .about-banner-section {
-    background-image: url('../images/about_subbanner_background.png');
+    background-image: url('../img/about_banner_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
