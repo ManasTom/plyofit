@@ -582,8 +582,12 @@ p {
 /* Home Page Our Services Section Style */
 /* CSS Styling */
 .our_services_section {
+    /* background-image: url('../images/our_services_background.png'); */
     background-color: var(--e-global-color-primary);
-    padding: 130px 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 130px 0 365px;
     position: relative;
 }
 
@@ -591,7 +595,43 @@ p {
     text-align: center;
 }
 
+.our_services_content h5 {
+    margin-bottom: 20px;
+    color: var(--e-global-color-accent);
+    letter-spacing: 7.6px;
+    padding-left: 12px;
+}
+
 .our_services_content h2 {
+    margin-bottom: 0;
+    color: var(--e-global-color-white);
+    padding: 0 180px;
+    font-size: 300%;
+}
+
+.our_services_section .our_services_left_icon {
+    position: absolute;
+    left: 0;
+    top: 70px;
+}
+
+.our_services_section .our_services_right_icon {
+    position: absolute;
+    right: 0;
+    bottom: 70px;
+}
+
+.our_services_section_faq {
+    background-color: var(--e-global-color-primary);
+    padding: 130px 0 0;
+    position: relative;
+}
+
+.our_services_content_faq {
+    text-align: center;
+}
+
+.our_services_content_faq h2 {
     margin-bottom: 20px;
     color: var(--e-global-color-white);
 }
