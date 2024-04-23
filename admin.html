@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Contact | PlyoFit</title>
+    <!-- /SEO Ultimate -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta charset="utf-8">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/js/bootstrap.min.js">
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- StyleSheet link CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/mediaqueries.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+
+</head>
+
+<body>
+    <div class="sub-banner-section admin-banner-section">
+        <header style="width: 90%; margin-left: 10%;">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="./index.html">
+                        <figure class="mb-0"><img src="./assets/img/plyofit_logo.png" alt="" class="img-fluid"></figure>
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./courses-and-certifications.html">Courses & Certifications</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Student Zone</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Career</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">Faq</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link contact_btn" href="./contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+    </div>
+    <!-- OUR SERVICES SECTION -->
+    <section class="admin_sidebar_mobile">
+        <div class="admin_sidebar_mobile_careers_bar">
+            Careers
+        </div>
+        <div class="admin_sidebar_mobile_Certifications_bar">
+            Certifications
+        </div>
+    </section>
+
+    <section class="admin_sidebar">
+        <div class="admin_sidebar_profile_bar">
+            ADMIN
+        </div>
+        <div class="admin_sidebar_careers_bar">
+            Careers
+        </div>
+        <div class="admin_sidebar_Certifications_bar">
+            Certifications
+        </div>
+    </section>
+    <section class="careers_admin_board">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 careers_editor_area">
+                <form action="">
+                    <input type="text" placeholder="Job ID" id="job_id">
+                    <input type="text" placeholder="Vacancy Name" id="vacancy_name">
+                    <textarea placeholder="Job Description" name="" id="job_description" cols="61"></textarea>
+                    <input type="number" placeholder="Experience in Years" id="experience">
+                    <input type="date" placeholder="Application Deadline" id="deadline">
+                    <button id="create">Add Vacancy</button>
+                    <button id="read">Read ID</button>
+                    <button id="update">Update</button>
+                    <button id="delete">Delete</button>
+                </form>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
+                <div class="dummy_table">
+                    CARRERS TABLE APPEARS HERE
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="certifications_admin_board">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 careers_editor_area">
+                <form action="">
+                    <input type="text" placeholder="Certificate ID." id="caertificate_id">
+                    <input type="text" placeholder="Student Name" id="student_name">
+                    <input type="text" placeholder="Membership No." id="membership_number">
+                    <input type="tel" placeholder="Mobile Number" id="phone">
+                    <input type="text" placeholder="Course Title" id="course_title">
+                    <!-- <div class="dropdown">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="multiSelectDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Certifications
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="multiSelectDropdown">
+                            <li>
+                                <label class="certification_checkbox">
+                                    <input type="checkbox" value="CERTIFICATION 1">
+                                    CERTIFICATION 1
+                                </label>
+                            </li>
+                            <li>
+                                <label class="certification_checkbox">
+                                    <input type="checkbox" value="CERTIFICATION 2">
+                                    CERTIFICATION 2
+                                </label>
+                            </li>
+                            <li>
+                                <label class="certification_checkbox">
+                                    <input type="checkbox" value="CERTIFICATION 3">
+                                    CERTIFICATION 3
+                                </label>
+                            </li>
+                        </ul>
+                    </div> -->
+                    <input type="text" placeholder="Awards Recieved if any (Seperated by comma)" id="awards">
+                    <button id="create">Add Certificate</button>
+                    <button id="read">Read ID</button>
+                    <button id="update">Update</button>
+                    <button id="delete">Delete</button>
+                </form>
+
+
+
+
+
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
+                <div class="dummy_table">
+                    CERTIFICATIONS TABLE APPEARS HERE
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- FOOTER SECTION -->
+    <section class="footer-section">
+        <div class="container">
+            <div class="middle-portion">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="about_col">
+                            <a href="./index.html">
+                                <figure>
+                                    <img src="./assets/img/plyofit_logo.png" alt="" class="img-fluid">
+                                </figure>
+                            </a>
+                            <p>QUALITY TRAINING BY QUALIFIED PROFESSIONALS</p>
+                            <ul class="list-unstyled">
+                                <li class="icons"><a href="#"><i class="fa-brands fa-facebook-f"
+                                            aria-hidden="true"></i></a></li>
+                                <li class="icons"><a href="#"><i class="fa-brands fa-twitter"
+                                            aria-hidden="true"></i></a></li>
+                                <li class="icons"><a href="#"><i class="fa-brands fa-instagram mr-0"
+                                            aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-lg-block d-none">
+                        <div class="hours_col">
+                            <h6>OPENING HOURS</h6>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p>Monday - Saturday</p>
+                                </li>
+                                <li>
+                                    <span>12.00 - 14.45</span>
+                                </li>
+                                <li>
+                                    <p>Sunday - Thursday</p>
+                                </li>
+                                <li>
+                                    <span>17.30 - 00.00</span>
+                                </li>
+                                <li>
+                                    <p>Friday - Saturday</p>
+                                </li>
+                                <li>
+                                    <span>17.30 - 00.00</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12 d-md-block d-none">
+                        <div class="links_col">
+                            <h6>QUICK LINKS</h6>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <i class="fa-solid fa-caret-right"></i>
+                                    <a href="./about.html">About</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-caret-right"></i>
+                                    <a href="#">Services</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-caret-right"></i>
+                                    <a href="#">Trainers</a>
+                                </li>
+                                <!-- <li>
+                                    <i class="fa-solid fa-caret-right"></i>
+                                    <a href="./pricing.html">Pricing</a>
+                                </li> -->
+                                <li>
+                                    <i class="fa-solid fa-caret-right"></i>
+                                    <a href="./contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="contact_col">
+                            <h6>CONTACT US</h6>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p>Address:</p>
+                                </li>
+                                <li>
+                                    <span>1 St floor, RR plaza, above D needs supearket,
+                                        Shettihalli, Jalahalli West, Bangalore 15</span>
+                                </li>
+                                <li>
+                                    <p>Email:</p>
+                                </li>
+                                <li class="mail">
+                                    <a href="mailto:info@pylofit.in" class="text-decoration-none">info@pylofit.in</a>
+                                </li>
+                                <li>
+                                    <p>Phone:</p>
+                                </li>
+                                <li class="mb-0">
+                                    <a href="tel:+91 82813 26050" class="text-decoration-none">+91 82813 26050</a>
+                                    <a href="tel:+91 90745 16427" class="text-decoration-none">+91 90745 16427</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-portion">
+            <div class="copyright col-xl-12">
+                <p>Copyright 2024 pylofit.com All Rights Reserved.</p>
+            </div>
+        </div>
+        <!-- <figure class="mb-0 footer_left_icon left_icon">
+            <img src="./assets/images/footer_left_icon.png" alt="" class="img-fluid">
+        </figure>
+        <figure class="mb-0 footer_right_icon right_icon">
+            <img src="./assets/images/footer_right_icon.png" alt="" class="img-fluid">
+        </figure> -->
+    </section>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/video-popup.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/video-section.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>
