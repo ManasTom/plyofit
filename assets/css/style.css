@@ -2973,3 +2973,57 @@ textarea {
     width: max-content !important;
 }
 
+
+
+
+/* CSS for styling the vacancies table */
+.vacancies_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vacancies_table th, .vacancies_table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.vacancies_table th {
+    background-color: #f2f2f2;
+}
+
+.vacancies_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.vacancies_table tbody tr:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+
+/* CSS for expand/collapse functionality */
+.job_description_content {
+    overflow: hidden;
+    max-height: 100px; /* Adjust as needed */
+    transition: max-height 0.3s ease;
+}
+
+.job_description_content.expanded {
+    max-height: none;
+}
+
+.expand_collapse_btn {
+    display: block;
+    margin-top: 5px;
+    padding: 3px 8px;
+    font-size: 12px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+}
+
+.expand_collapse_btn:hover {
+    background-color: #e0e0e0;
+}
