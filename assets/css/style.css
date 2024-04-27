@@ -2996,7 +2996,7 @@ textarea {
     background-color: #f9f9f9;
 }
 
-.vacancies_table tbody tr:hover {
+.vacancies_table tbody tr {
     background-color: #f0f0f0;
     cursor: pointer;
 }
@@ -3026,4 +3026,51 @@ textarea {
 
 .expand_collapse_btn:hover {
     background-color: #e0e0e0;
+}
+
+.vacancy_table_wrapper{
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.certifications_table_wrapper {
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    overflow: auto;
+}
+
+.certifications_table {
+    width: max-content;
+    border-collapse: collapse;
+}
+
+.certifications_table th, .certifications_table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.certifications_table th {
+    background-color: #f2f2f2;
+}
+
+.certifications_table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.certifications_table tbody tr {
+    background-color: #f0f0f0;
 }

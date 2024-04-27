@@ -100,19 +100,22 @@
     <section class="careers_admin_board">
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 careers_editor_area">
-                <input type="text" placeholder="Job ID" id="job_id">
-                <input type="text" placeholder="Vacancy Name" id="vacancy_name">
+                <input required type="text" placeholder="Job ID" id="job_id">
+                <input required type="text" placeholder="Vacancy Name" id="vacancy_name">
                 <textarea placeholder="Job Description" name="" id="job_description" cols="61"></textarea>
-                <input type="number" placeholder="Experience in Years" id="experience">
-                <input type="date" placeholder="Application Deadline" id="deadline">
+                <input required type="number" placeholder="Experience in Years" id="experience">
+                <label style="color: #fff;">Emter the application deadline below</label>
+                <input required type="date" placeholder="Application Deadline" id="deadline">
                 <button type="submit" id="createV">Add Vacancy</button>
                 <button id="readV">Read ID</button>
                 <button id="updateV">Update</button>
                 <button id="deleteV">Delete</button>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
-                <div class="dummy_table">
-                    LOADING DATA....
+                <div class="vacancy_table_wrapper">
+                    <div class="vacancy_table">
+                        LOADING DATA....
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,16 +125,16 @@
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 careers_editor_area">
                 <form action="">
-                    <input type="text" placeholder="Certificate ID." id="caertificate_id">
+                    <input type="text" placeholder="Certificate ID." id="certificate_id">
                     <input type="text" placeholder="Student Name" id="student_name">
                     <input type="text" placeholder="Membership No." id="membership_number">
                     <input type="tel" placeholder="Mobile Number" id="phone">
                     <input type="text" placeholder="Course Title" id="course_title">
                     <input type="text" placeholder="Awards Recieved if any (Seperated by comma)" id="awards">
-                    <button id="">Add Certificate</button>
-                    <button id="read">Read ID</button>
-                    <button id="update">Update</button>
-                    <button id="delete">Delete</button>
+                    <button id="createC">Add Certificate</button>
+                    <button id="readC">Read ID</button>
+                    <button id="updateC">Update</button>
+                    <button id="deleteC">Delete</button>
                 </form>
 
 
@@ -140,8 +143,10 @@
 
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
-                <div class="dummy_table">
-                    CERTIFICATIONS TABLE APPEARS HERE
+                <div class="certifications_table_wrapper">
+                    <div class="certifications_table_area">
+                        <!-- Certification Table will appear here -->
+                    </div>
                 </div>
             </div>
         </div>
