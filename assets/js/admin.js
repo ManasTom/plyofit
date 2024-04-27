@@ -379,11 +379,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
-
-
-//
+// *********************************************
+// function to refresh certifications table data
+// *********************************************
 function refreshCertificateTable() {
     var certificationsRef = firebase.database().ref("certificates");
     certificationsRef.once("value", function(snapshot) {
@@ -393,37 +391,9 @@ function refreshCertificateTable() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ********************
+// SEARCH FUNCTIONALITY
+// ********************
 
 document.addEventListener("DOMContentLoaded", function() {
     var searchInput = document.getElementById("admin_searchBox");

@@ -2241,6 +2241,17 @@ th {
     padding: 16px 30px;
 }
 
+.studentsZone-banner-section {
+    background-image: url('../img/sudentZoneBanner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.studentsZone-banner-section .banner-section .btn_wrapper {
+    padding: 16px 30px;
+}
+
 /* Contact Page Find Us Section Style */
 
 .find_us_section {
@@ -3075,7 +3086,7 @@ textarea {
 
 .certifications_table_wrapper {
     width: 100%;
-    height: 300px;
+    height: 400px;
     /* Adjust height as needed */
     overflow: auto;
 }
@@ -3102,4 +3113,79 @@ textarea {
 
 .certifications_table tbody tr {
     background-color: #f0f0f0;
+}
+
+
+
+
+
+
+
+.validation_section {
+    width: 100%;
+    height: 500px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.validator_wrapper {
+    width: 40%;
+    height: max-content;
+}
+.validator1 {
+    display: flex;
+    justify-content: center;
+}
+.validator2{
+    display: flex;
+    justify-content: center;
+}
+.validator_wrapper input{
+    width: 90%;
+    height: 3rem;
+    margin: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 0.8rem;
+}
+.validator_wrapper button{
+    height: 3rem;
+    margin: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #f003a0;
+    color: #ffffff;
+    font-weight: bold;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.validator_display{
+    width: 100%;
+    height: max-content;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 1200px) {
+    .validator_wrapper {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .validator_wrapper {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .validator_wrapper {
+        width: 95%;
+    }
+}
+
+*{
+    border: 1px solid red;
 }
