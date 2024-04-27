@@ -2884,6 +2884,7 @@ textarea {
     margin-bottom: 2%;
     border-radius: 0.5rem;
 }
+
 .careers_editor_area button:hover {
 
     outline: none;
@@ -2896,6 +2897,28 @@ textarea {
 .careers_table_area {
     width: 100%;
     padding: 3%;
+}
+
+.admin_searchBox {
+    width: 40%;
+    height: 2.5rem;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    padding-left: 15px;
+}
+
+.admin_searchButtton {
+    width: max-content;
+    height: 2.5rem;
+    outline: none;
+    border: none;
+    border-radius: 0.4rem;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: #f003a0;
+    color: #ffffff;
+    font-weight: bold
 }
 
 .dummy_table {
@@ -2954,7 +2977,7 @@ textarea {
     }
 }
 
-.certification_checkbox{
+.certification_checkbox {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -2962,14 +2985,15 @@ textarea {
     width: 100%;
     padding-right: 1%;
 }
-.certification_checkbox input{
+
+.certification_checkbox input {
     width: 30%;
     scale: 40%;
     text-align: left;
 
 }
 
-.dropdown-menu{
+.dropdown-menu {
     width: max-content !important;
 }
 
@@ -2982,7 +3006,8 @@ textarea {
     border-collapse: collapse;
 }
 
-.vacancies_table th, .vacancies_table td {
+.vacancies_table th,
+.vacancies_table td {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
@@ -3006,7 +3031,8 @@ textarea {
 /* CSS for expand/collapse functionality */
 .job_description_content {
     overflow: hidden;
-    max-height: 100px; /* Adjust as needed */
+    max-height: 100px;
+    /* Adjust as needed */
     transition: max-height 0.3s ease;
 }
 
@@ -3028,9 +3054,10 @@ textarea {
     background-color: #e0e0e0;
 }
 
-.vacancy_table_wrapper{
+.vacancy_table_wrapper {
     width: 100%;
-    height: 500px; /* Adjust height as needed */
+    height: 500px;
+    /* Adjust height as needed */
     overflow: auto;
 }
 
@@ -3048,7 +3075,8 @@ textarea {
 
 .certifications_table_wrapper {
     width: 100%;
-    height: 300px; /* Adjust height as needed */
+    height: 300px;
+    /* Adjust height as needed */
     overflow: auto;
 }
 
@@ -3057,7 +3085,8 @@ textarea {
     border-collapse: collapse;
 }
 
-.certifications_table th, .certifications_table td {
+.certifications_table th,
+.certifications_table td {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;

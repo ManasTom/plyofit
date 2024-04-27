@@ -353,7 +353,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
 //***************************************************
 //code to prevent default page refresh on submissions
 //***************************************************
@@ -378,3 +377,104 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+
+
+
+
+
+//
+function refreshCertificateTable() {
+    var certificationsRef = firebase.database().ref("certificates");
+    certificationsRef.once("value", function(snapshot) {
+        createCertificationsTable(snapshot);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var searchInput = document.getElementById("admin_searchBox");
+    var searchButton = document.getElementById("admin_searchButtton");
+    var certificationsTableArea = document.querySelector(".certifications_table_area");
+
+    searchButton.addEventListener("click", function() {
+        var searchTerm = searchInput.value.trim().toLowerCase();
+        if (searchTerm === "") {
+            // If search term is empty, clear the table area
+            certificationsTableArea.innerHTML = "";
+            return;
+        }
+
+        // Perform search operation in the "certificates" section of the database
+        var certificationsRef = firebase.database().ref("certificates");
+        certificationsRef.once("value", function(snapshot) {
+            var searchResults = [];
+            snapshot.forEach(function(childSnapshot) {
+                var certificationData = childSnapshot.val();
+                // Check if any of the fields contain the search term
+                if (certificationData.certificate_id.toLowerCase().includes(searchTerm) ||
+                    certificationData.student_name.toLowerCase().includes(searchTerm) ||
+                    certificationData.membership_number.toLowerCase().includes(searchTerm) ||
+                    certificationData.phone.toLowerCase().includes(searchTerm)) {
+                    searchResults.push(certificationData);
+                }
+            });
+
+            // Display search results as a table
+            displaySearchResults(searchResults);
+        });
+    });
+
+    function displaySearchResults(results) {
+        var tableHTML = "<table class='certifications_table'>" +
+            "<thead><tr><th>Certificate ID</th><th>Student Name</th><th>Membership Number</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th></tr></thead>" +
+            "<tbody>";
+
+        results.forEach(function(certificationData) {
+            tableHTML += "<tr>" +
+                "<td>" + certificationData.certificate_id + "</td>" +
+                "<td>" + certificationData.student_name + "</td>" +
+                "<td>" + certificationData.membership_number + "</td>" +
+                "<td>" + certificationData.phone + "</td>" +
+                "<td>" + certificationData.course_title + "</td>" +
+                "<td>" + certificationData.awards + "</td>" +
+                "</tr>";
+        });
+
+        tableHTML += "</tbody></table>";
+        certificationsTableArea.innerHTML = tableHTML;
+    }
+});
