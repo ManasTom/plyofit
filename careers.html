@@ -76,9 +76,9 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="banner-section-content">
-                            <h1 data-aos="fade-up">Student Zone</h1>
+                            <h1 data-aos="fade-up">Careers</h1>
                             <div class="btn_wrapper">
-                                <span class="sub_home_span">Home </span>-<span class="sub_span"> Student Zone</span>
+                                <span class="sub_home_span">Home </span>-<span class="sub_span"> Careers</span>
                             </div>
                         </div>
                     </div>
@@ -87,26 +87,25 @@
         </section>
     </div>
 
-    <section class="validation_section">
-        <div class="validator_wrapper">
-            <label style="color: #fff;">Validate your Plyofit certificate here using the certificate ID</label>
-            <div class="validator1">
-                <input id="cert_id" placeholder="Validate using Certificate ID" type="text">
-                <button id="validate_cert_id">Search</button>
-            </div>
+    <section class="careers_section">
+        <h1>Build Your Career With Us</h1>
+        <br>
+        <table id="jobTable" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th style="color: #f003a0; font-size: 150%; font-weight: bold; font-family: 'Teko', sans-serif;">Open Positions</th>
+                    <th style="color: #f003a0; font-size: 150%; font-weight: bold; font-family: 'Teko', sans-serif;">Experience</th>
+                    <th></th> <!-- Empty header for Apply Now buttons -->
+                </tr>
+            </thead>
+            <tbody style="color: #ffff;">
+                <!-- Job vacancies will be dynamically added here -->
+            </tbody>
+        </table>
 
-            <div class="validator_display1"></div>
-
-            <br>
-
-            <label style="color: #fff;">Get your Plyofit Certification details here using your Student Code</label>
-            <div class="validator2">
-                <input id="student_code" placeholder="Validate using Student Code" type="text">
-                <button id="validate_student_code">Search</button>
-            </div>
-
-            <div class="validator_display2"></div>
-
+        <!-- Popup div for job application form -->
+        <div id="applyPopup" style="display: none; ">
+            <!-- Job details and application form will be dynamically added here -->
         </div>
     </section>
 
@@ -246,6 +245,7 @@
     <script src="assets/js/firconfig.js"></script>
     <!-- <script src="assets/js/admin.js"></script> -->
     <script src="assets/js/studentZone.js"></script>
+    <script src="assets/js/careers.js"></script>
 </body>
 
 </html>

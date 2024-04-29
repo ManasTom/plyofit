@@ -1,6 +1,6 @@
-//*************************
+// ************************************************************************************
 //CAREERS SECTION ADMIN PANNEL
-//*************************
+// ************************************************************************************
 
 // variable decerations
 var jobId, vacancyName, JobDescriptioon, Experience, DeadLine;
@@ -176,22 +176,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-//*************************
+// ************************************************************************************
 //CERTIFICATIONS SECTION ADMIN PANNEL
-//*************************
+// ************************************************************************************
 
 // variable decerations
-var certificateId, studentName, membershipId, mobileNumber, courseTitle, awards;
+var certificateId, studentName, studentCode, mobileNumber, courseTitle, awards;
 
 //function to read certifications form data
 function readFormC (){
     certificateId = document.getElementById("certificate_id").value;
     studentName = document.getElementById("student_name").value;
-    membershipId = document.getElementById("membership_number").value;
+    studentCode = document.getElementById("student_code").value;
     mobileNumber = document.getElementById("phone").value;
     courseTitle = document.getElementById("course_title").value;
     awards = document.getElementById("awards").value;
-    console.log(certificateId, studentName, membershipId, mobileNumber, courseTitle, awards);
+    console.log(certificateId, studentName, studentCode, mobileNumber, courseTitle, awards);
 }
 
 
@@ -200,14 +200,14 @@ function readFormC (){
 document.getElementById("createC").onclick = function () {
     readFormC();
     
-    if (certificateId, studentName, membershipId, mobileNumber, courseTitle, awards) {
+    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, awards) {
         firebase
         .database()
         .ref("certificates/" + certificateId)
         .set({
             certificate_id: certificateId,
             student_name: studentName,
-            membership_number: membershipId,
+            student_code: studentCode,
             phone: mobileNumber,
             course_title: courseTitle,
             awards: awards,
@@ -220,7 +220,7 @@ document.getElementById("createC").onclick = function () {
     
     document.getElementById("certificate_id").value = "";
     document.getElementById("student_name").value = "";
-    document.getElementById("membership_number").value = "";
+    document.getElementById("student_code").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("course_title").value = "";
     document.getElementById("awards").value = "";
@@ -240,7 +240,7 @@ document.getElementById("readC").onclick = function () {
         .on("value", function (snap) {
             document.getElementById("certificate_id").value = snap.val().certificate_id;
             document.getElementById("student_name").value = snap.val().student_name;
-            document.getElementById("membership_number").value = snap.val().membership_number;
+            document.getElementById("student_code").value = snap.val().student_code;
             document.getElementById("phone").value = snap.val().phone;
             document.getElementById("course_title").value = snap.val().course_title;
             document.getElementById("awards").value = snap.val().awards;
@@ -257,14 +257,14 @@ document.getElementById("readC").onclick = function () {
 document.getElementById("updateC").onclick = function () {
     readFormC();
 
-    if (certificateId, studentName, membershipId, mobileNumber, courseTitle, awards) {
+    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, awards) {
         firebase
         .database()
         .ref("certificates/" + certificateId)
         .update({
             certificate_id: certificateId,
             student_name: studentName,
-            membership_number: membershipId,
+            student_code: studentCode,
             phone: mobileNumber,
             course_title: courseTitle,
             awards: awards,
@@ -276,7 +276,7 @@ document.getElementById("updateC").onclick = function () {
     
     document.getElementById("certificate_id").value = "";
     document.getElementById("student_name").value = "";
-    document.getElementById("membership_number").value = "";
+    document.getElementById("student_code").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("course_title").value = "";
     document.getElementById("awards").value = "";
@@ -301,7 +301,7 @@ document.getElementById("deleteC").onclick = function () {
 
     document.getElementById("certificate_id").value = "";
     document.getElementById("student_name").value = "";
-    document.getElementById("membership_number").value = "";
+    document.getElementById("student_code").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("course_title").value = "";
     document.getElementById("awards").value = "";
@@ -321,7 +321,7 @@ function createCertificationsTable(snapshot) {
 
     var thead = document.createElement("thead");
     var headerRow = document.createElement("tr");
-    headerRow.innerHTML = "<th>Certificate ID</th><th>Student Name</th><th>Membership Number</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th>";
+    headerRow.innerHTML = "<th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th>";
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
@@ -332,7 +332,7 @@ function createCertificationsTable(snapshot) {
         var row = document.createElement("tr");
         row.innerHTML = "<td>" + certificationData.certificate_id + "</td>" +
                         "<td>" + certificationData.student_name + "</td>" +
-                        "<td>" + certificationData.membership_number + "</td>" +
+                        "<td>" + certificationData.student_code + "</td>" +
                         "<td>" + certificationData.phone + "</td>" +
                         "<td>" + certificationData.course_title + "</td>" +
                         "<td>" + certificationData.awards + "</td>";
@@ -353,9 +353,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-//***************************************************
+// ************************************************************************************
 //code to prevent default page refresh on submissions
-//***************************************************
+// ************************************************************************************
 
 document.addEventListener("DOMContentLoaded", function() {
     // Prevent page refresh on button clicks
@@ -379,9 +379,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// *********************************************
+// ************************************************************************************
 // function to refresh certifications table data
-// *********************************************
+// ************************************************************************************
 function refreshCertificateTable() {
     var certificationsRef = firebase.database().ref("certificates");
     certificationsRef.once("value", function(snapshot) {
@@ -391,9 +391,9 @@ function refreshCertificateTable() {
 
 
 
-// ********************
+// ************************************************************************************
 // SEARCH FUNCTIONALITY
-// ********************
+// ************************************************************************************
 
 document.addEventListener("DOMContentLoaded", function() {
     var searchInput = document.getElementById("admin_searchBox");
@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Check if any of the fields contain the search term
                 if (certificationData.certificate_id.toLowerCase().includes(searchTerm) ||
                     certificationData.student_name.toLowerCase().includes(searchTerm) ||
-                    certificationData.membership_number.toLowerCase().includes(searchTerm) ||
+                    certificationData.student_code.toLowerCase().includes(searchTerm) ||
                     certificationData.phone.toLowerCase().includes(searchTerm)) {
                     searchResults.push(certificationData);
                 }
@@ -430,14 +430,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displaySearchResults(results) {
         var tableHTML = "<table class='certifications_table'>" +
-            "<thead><tr><th>Certificate ID</th><th>Student Name</th><th>Membership Number</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th></tr></thead>" +
+            "<thead><tr><th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th></tr></thead>" +
             "<tbody>";
 
         results.forEach(function(certificationData) {
             tableHTML += "<tr>" +
                 "<td>" + certificationData.certificate_id + "</td>" +
                 "<td>" + certificationData.student_name + "</td>" +
-                "<td>" + certificationData.membership_number + "</td>" +
+                "<td>" + certificationData.student_code + "</td>" +
                 "<td>" + certificationData.phone + "</td>" +
                 "<td>" + certificationData.course_title + "</td>" +
                 "<td>" + certificationData.awards + "</td>" +
@@ -448,3 +448,10 @@ document.addEventListener("DOMContentLoaded", function() {
         certificationsTableArea.innerHTML = tableHTML;
     }
 });
+
+
+
+
+
+
+
