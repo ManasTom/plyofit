@@ -34,17 +34,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Build the email message
     $messageBody = "Applicant Name: $fullName\n";
- 
     $messageBody .= "Contact Number: $contactNumber\n";
     $messageBody .= "Email: $email\n";
     $messageBody .= "Place: $place\n";
-    $messageBody .= "Date of Birth:\n$dob\n";
-    $messageBody .= "Experience:\n$workExperience\n";
-    $messageBody .= "Certified Trainer:\n$certifiedTrainer\n";
-    $messageBody .= "Certification Name:\n$certificationName\n";
-    $messageBody .= "Able to relocate? :\n$relocate\n";
-    $messageBody .= "Salary expectations:\n$salaryExpectations\n";
-    $messageBody .= "Immediate Joining?:\n$immediateJoin\n";
+    $messageBody .= "Date of Birth: $dob\n";
+    $messageBody .= "Experience: $workExperience\n";
+    $messageBody .= "Certified Trainer: $certifiedTrainer\n";
+    $messageBody .= "Certification Name: $certificationName\n";
+    $messageBody .= "Able to relocate? : $relocate\n";
+    $messageBody .= "Salary expectations: $salaryExpectations\n";
+    $messageBody .= "Immediate Joining?: $immediateJoin\n";
 
     // Create a boundary for the email
     $boundary = md5(time());
