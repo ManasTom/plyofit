@@ -42,7 +42,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Function to handle Apply Now button clicks
+
+    // Function to handle form submission
+    function submitApplication(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        var formData = new FormData(document.getElementById("applicationForm"));
+        var vacancyName = document.getElementById("vacancyName").innerText;
+
+        // Send form data to the PHP script using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "submit_application.php", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // Form submission successful
+                    alert(xhr.responseText); // Display success message
+                    // Close the popup or do any other necessary actions
+                } else {
+                    // Form submission failed
+                    alert("Failed to submit the application. Please try again later.");
+                }
+            }
+        };
+        xhr.send(formData);
+    }
+
+
     // Function to handle Apply Now button clicks
     function handleApplyNowClick(event) {
         var vacancyId = event.target.dataset.vacancyId;
@@ -55,11 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
             var popupContent = `
         <div style="height: 40rem; overflow-y: auto;">
         <h2 style="color: #f003a0;">Apply Now</h2>
-            <h3>Vacancy: ${vacancyData.vacancy_name}</h3>
+            <h3 id="jobTitle">Vacancy: ${vacancyData.vacancy_name}</h3>
             <p><strong>Job Description:</strong> ${vacancyData.job_description}</p>
             <p><strong>Required Experience:</strong> ${vacancyData.experience} years</p>
             <hr>
-            <form id="applicationForm" action="careers.php">
+            <form id="applicationForm" action="submit_application.php" method="post" enctype="multipart/form-data">
                 <input type="text" id="fullName" name="fullName" placeholder="Full Name" style="width: 70%; margin-bottom: 10px; border: 1px solid #000000; border-radius: 5px; padding: 5px;"><br/>
                 <input type="tel" id="contactNumber" name="contactNumber" placeholder="Contact Number" style="width: 70%; margin-bottom: 10px; border: 1px solid #000000; border-radius: 5px; padding: 5px;"><br/>
                 <input type="email" id="email" name="email" placeholder="Email ID" style="width: 70%; margin-bottom: 10px; border: 1px solid #000000; border-radius: 5px; padding: 5px;"><br/>
@@ -84,8 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select><br/>
-                <input type="file" id="resume" name="resume" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="margin-bottom: 10px; border: 1px solid #000000; border-radius: 5px; padding: 5px;"><br/>
-                <input type="submit" value="Submit Application" style="background-color: #f003a0; color: #ffffff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">
+                <input type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" style="margin-bottom: 10px; border: 1px solid #000000; border-radius: 5px; padding: 5px;"><br/>                <input type="submit" value="Submit Application" style="background-color: #f003a0; color: #ffffff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">
             </form>
         <div/>
             
