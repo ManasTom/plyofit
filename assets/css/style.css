@@ -3217,4 +3217,6 @@ textarea {
     justify-content: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }

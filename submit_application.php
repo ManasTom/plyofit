@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize user input
+    $vacancyName = htmlspecialchars($_POST['vacancyName']);
     $fullName = htmlspecialchars($_POST['fullName']);
     $contactNumber = htmlspecialchars($_POST['contactNumber']);
     $email = htmlspecialchars($_POST['email']);
@@ -30,11 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmationFrom = "manastom670@gmail.com"; // Replace with the desired email address
 
     // Set the subject of the email
-    $subject = "Job Application";
+    $subject = "Job Application for $vacancyName";
 
     // Build the email message
     $messageBody = "Applicant Name: $fullName\n";
     $messageBody .= "Contact Number: $contactNumber\n";
+    $messageBody .= "Applied For : $$vacancyName\n";
     $messageBody .= "Email: $email\n";
     $messageBody .= "Place: $place\n";
     $messageBody .= "Date of Birth: $dob\n";
@@ -43,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $messageBody .= "Certification Name: $certificationName\n";
     $messageBody .= "Able to relocate? : $relocate\n";
     $messageBody .= "Salary expectations: $salaryExpectations\n";
-    $messageBody .= "Immediate Joining?: $immediateJoin\n";
+    $messageBody .= "Immediate Joi ning?: $immediateJoin\n";
 
     // Create a boundary for the email
     $boundary = md5(time());
@@ -78,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Confirmation email to the applicant
     $confirmationSubject = "Application Confirmation";
-    $confirmationMessage = "Dear $fullName,\n\nThank you for submitting your job application for 'xxxxxx'. We have received your application and will review it shortly.\n\nBest regards,\nThe Illford Digital Hiring Team";
+    $confirmationMessage = "Dear $fullName,\n\nThank you for submitting your job application for $vacancyName.\nWe have received your application and will review it shortly.\n\nBest regards,\nThe Plyofit Hiring Team";
 
     // Headers for the confirmation email with a consistent "From" address
     $confirmationHeaders = "From: $confirmationFrom\r\n";
@@ -91,9 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Redirect to the thank-you page
-    echo "submitted";
+    echo "<script>alert('Application submitted successfully!');</script>";
 } else {
     // Redirect to the error page if there's an issue with the form submission
-    echo "oops error!!";
+    echo "<script>alert('An error oocoured..!');</script>";
 }
 ?>
