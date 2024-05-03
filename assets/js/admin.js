@@ -455,3 +455,45 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
+
+//download backup
+function downloadEncryptedJSON() {
+    const databaseURL = 'https://plyofit-49b60-default-rtdb.firebaseio.com/';
+    const jsonDataURL = databaseURL + '.json';
+
+    fetch(jsonDataURL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(jsonData => {
+            // Convert JSON object to a string
+            const jsonString = JSON.stringify(jsonData, null, 2);
+
+            // Encrypt the JSON string using AES encryption
+            const encryptedData = CryptoJS.AES.encrypt(jsonString, 'Aubdgh6SDkuihS756db867astgsm').toString();
+
+            // Create a Blob object with the encrypted data
+            const blob = new Blob([encryptedData], { type: 'application/octet-stream' });
+
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = 'backup.json';
+
+            // Programmatically trigger a click event on the anchor element
+            // to initiate the download
+            a.click();
+
+            // Remove the temporary anchor element
+            window.URL.revokeObjectURL(a.href);
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+};
+  
