@@ -1,12 +1,12 @@
 //fireConfig 
 var firebaseConfig = {
-    apiKey: "AIzaSyAD0L4zuhIFv2BWbR5nmAYSHHRYHz4IW5s",
-    authDomain: "plyofit-49b60.firebaseapp.com",
-    databaseURL: "https://plyofit-49b60-default-rtdb.firebaseio.com",
-    projectId: "plyofit-49b60",
-    storageBucket: "plyofit-49b60.appspot.com",
-    messagingSenderId: "254952486816",
-    appId: "1:254952486816:web:b7a62c9400d232d6f096c5"
+    apiKey: "AIzaSyCvctj0GbvamxFo3F0jtSNROxaNbMHTQyo",
+    authDomain: "plyofit-3798c.firebaseapp.com",
+    databaseURL: "https://plyofit-3798c-default-rtdb.firebaseio.com",
+    projectId: "plyofit-3798c",
+    storageBucket: "plyofit-3798c.appspot.com",
+    messagingSenderId: "170636040021",
+    appId: "1:170636040021:web:a167a444d8471a7c9201dc"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
