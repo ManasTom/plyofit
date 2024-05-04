@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // ************************************************************************************
 
 // variable decerations
-var certificateId, studentName, studentCode, mobileNumber, courseTitle, awards;
+var certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority;
 
 //function to read certifications form data
 function readFormC (){
@@ -190,8 +190,8 @@ function readFormC (){
     studentCode = document.getElementById("student_code").value;
     mobileNumber = document.getElementById("phone").value;
     courseTitle = document.getElementById("course_title").value;
-    awards = document.getElementById("awards").value;
-    console.log(certificateId, studentName, studentCode, mobileNumber, courseTitle, awards);
+    cert_athority = document.getElementById("cert_athority").value;
+    console.log(certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority);
 }
 
 
@@ -200,7 +200,7 @@ function readFormC (){
 document.getElementById("createC").onclick = function () {
     readFormC();
     
-    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, awards) {
+    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority) {
         firebase
         .database()
         .ref("certificates/" + certificateId)
@@ -210,7 +210,7 @@ document.getElementById("createC").onclick = function () {
             student_code: studentCode,
             phone: mobileNumber,
             course_title: courseTitle,
-            awards: awards,
+            cert_athority: cert_athority,
         });
     alert("New certificate added");
     } else {
@@ -223,7 +223,7 @@ document.getElementById("createC").onclick = function () {
     document.getElementById("student_code").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("course_title").value = "";
-    document.getElementById("awards").value = "";
+    document.getElementById("cert_athority").value = "";
 
 };
 
@@ -243,7 +243,7 @@ document.getElementById("readC").onclick = function () {
             document.getElementById("student_code").value = snap.val().student_code;
             document.getElementById("phone").value = snap.val().phone;
             document.getElementById("course_title").value = snap.val().course_title;
-            document.getElementById("awards").value = snap.val().awards;
+            document.getElementById("cert_athority").value = snap.val().cert_athority;
         });
     } else {
         alert("Please enter a Certificate ID ID to read Certification data.");
@@ -257,7 +257,7 @@ document.getElementById("readC").onclick = function () {
 document.getElementById("updateC").onclick = function () {
     readFormC();
 
-    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, awards) {
+    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority) {
         firebase
         .database()
         .ref("certificates/" + certificateId)
@@ -267,7 +267,7 @@ document.getElementById("updateC").onclick = function () {
             student_code: studentCode,
             phone: mobileNumber,
             course_title: courseTitle,
-            awards: awards,
+            cert_athority: cert_athority,
         });
     alert("Certification Details Updated");
     } else {
@@ -279,7 +279,7 @@ document.getElementById("updateC").onclick = function () {
     document.getElementById("student_code").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("course_title").value = "";
-    document.getElementById("awards").value = "";
+    document.getElementById("cert_athority").value = "";
 };
 
 
@@ -304,7 +304,7 @@ document.getElementById("deleteC").onclick = function () {
     document.getElementById("student_code").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("course_title").value = "";
-    document.getElementById("awards").value = "";
+    document.getElementById("cert_athority").value = "";
 
 };
 
@@ -321,7 +321,7 @@ function createCertificationsTable(snapshot) {
 
     var thead = document.createElement("thead");
     var headerRow = document.createElement("tr");
-    headerRow.innerHTML = "<th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th>";
+    headerRow.innerHTML = "<th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Certifying Authority</th>";
     thead.appendChild(headerRow);
     table.appendChild(thead);
 
@@ -335,7 +335,7 @@ function createCertificationsTable(snapshot) {
                         "<td>" + certificationData.student_code + "</td>" +
                         "<td>" + certificationData.phone + "</td>" +
                         "<td>" + certificationData.course_title + "</td>" +
-                        "<td>" + certificationData.awards + "</td>";
+                        "<td>" + certificationData.cert_athority + "</td>";
 
         tbody.appendChild(row);
     });
@@ -430,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displaySearchResults(results) {
         var tableHTML = "<table class='certifications_table'>" +
-            "<thead><tr><th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Awards Received</th></tr></thead>" +
+            "<thead><tr><th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Certifying Autority</th></tr></thead>" +
             "<tbody>";
 
         results.forEach(function(certificationData) {
@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "<td>" + certificationData.student_code + "</td>" +
                 "<td>" + certificationData.phone + "</td>" +
                 "<td>" + certificationData.course_title + "</td>" +
-                "<td>" + certificationData.awards + "</td>" +
+                "<td>" + certificationData.cert_athority + "</td>" +
                 "</tr>";
         });
 
@@ -448,7 +448,6 @@ document.addEventListener("DOMContentLoaded", function() {
         certificationsTableArea.innerHTML = tableHTML;
     }
 });
-
 
 
 

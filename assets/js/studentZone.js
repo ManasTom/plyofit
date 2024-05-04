@@ -55,19 +55,20 @@ document.addEventListener("DOMContentLoaded", function () {
         // Query certificates based on student code
         certificatesRef.orderByChild("student_code").equalTo(studentCode).once("value", function (snapshot) {
             var studentDetails = "";
-            var uniqueAwards = {}; // Object to store unique awards
+            // var uniqueAwards = {}; // Object to store unique awards
 
             // Iterate over each certificate associated with the student code
             snapshot.forEach(function (childSnapshot) {
                 var certificateData = childSnapshot.val();
                 // Append certificate details to studentDetails string
                 studentDetails += "Certificate ID: " + certificateData.certificate_id + "<br/>";
-                studentDetails += "Course Title: " + certificateData.course_title + "<br/><br/>";
+                studentDetails += "Course Title: " + certificateData.course_title + "<br/>";
+                studentDetails += "Certifying Authority: " + certificateData.cert_athority + "<br/><br/>";
 
                 // Check if the award is not already displayed
-                if (!uniqueAwards[certificateData.awards]) {
-                    uniqueAwards[certificateData.awards] = true; // Mark the award as displayed
-                }
+                // if (!uniqueAwards[certificateData.awards]) {
+                //     uniqueAwards[certificateData.awards] = true; // Mark the award as displayed
+                // }
             });
 
             if (studentDetails !== "") {
@@ -75,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 var studentName = snapshot.val()[Object.keys(snapshot.val())[0]].student_name;
                 // Student details found, display them
                 validatorDisplay2.innerHTML = "Student Name: " + studentName + "<br/>" +
-                    "Student Code: " + studentCode + "<br/>" +
-                    "<b>Awards:</b><br/>";
+                    "Student Code: " + studentCode + "<br/>" ;
+                    // + "<b>Awards:</b><br/>";
 
                 // Display unique awards
-                for (var award in uniqueAwards) {
-                    validatorDisplay2.innerHTML += award + "<br/>";
-                }
+                // for (var award in uniqueAwards) {
+                //     validatorDisplay2.innerHTML += award + "<br/>";
+                // }
 
                 validatorDisplay2.innerHTML += "<br/><b>Certifications:</b><br/>" + studentDetails;
             } else {
