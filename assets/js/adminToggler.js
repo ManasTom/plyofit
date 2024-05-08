@@ -11,20 +11,49 @@ document.addEventListener("DOMContentLoaded", function () {
     careersBarMobile.addEventListener("click", function () {
         careersAdminBoard.style.display = "block";
         certificationsAdminBoard.style.display = "none";
+
+        var vacancyRef = firebase.database().ref("vacancies");
+        vacancyRef.once("value", function (snapshot) {
+            createVacanciesTable(snapshot);
+        });
     });
+
+
+
 
     certificationsBarMobile.addEventListener("click", function () {
         certificationsAdminBoard.style.display = "block";
         careersAdminBoard.style.display = "none";
+
+        var certificationsRef = firebase.database().ref("certificates");
+        certificationsRef.once("value", function (snapshot) {
+            createCertificationsTable(snapshot);
+        });
     });
+
+
+
 
     careersBar.addEventListener("click", function () {
         careersAdminBoard.style.display = "block";
         certificationsAdminBoard.style.display = "none";
+
+        var vacancyRef = firebase.database().ref("vacancies");
+        vacancyRef.once("value", function (snapshot) {
+            createVacanciesTable(snapshot);
+        });
     });
+
+
+
 
     certificationsBar.addEventListener("click", function () {
         certificationsAdminBoard.style.display = "block";
         careersAdminBoard.style.display = "none";
+
+        var certificationsRef = firebase.database().ref("certificates");
+        certificationsRef.once("value", function (snapshot) {
+            createCertificationsTable(snapshot);
+        });
     });
 });

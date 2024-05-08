@@ -3021,7 +3021,7 @@ textarea {
 .vacancies_table td {
     border: 1px solid #ccc;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 .vacancies_table th {
@@ -3034,7 +3034,40 @@ textarea {
 
 .vacancies_table tbody tr {
     background-color: #f0f0f0;
-    cursor: pointer;
+    cursor:auto ;
+}
+
+
+
+.edit_btn{
+    border: none;
+    margin-bottom: 8px;
+}
+.edit_btn i{
+    color: #f003a0;
+}
+
+.delete_btn{
+    border: none;
+}
+.delete_btn i{
+    color: red;
+}
+
+
+.editButton{
+    border: none;
+    margin-bottom: 8px;
+}
+.editButton i{
+    color: #f003a0;
+}
+
+.deleteButton{
+    border: none;
+}
+.deleteButton i{
+    color: red;
 }
 
 
@@ -3434,3 +3467,6 @@ textarea {
         font-size: 180%;
     }
 }
+
+
+

@@ -61,10 +61,15 @@
                                 <a class="nav-link" href="careers.html">Career</a>
                             </li>
                             <li class="nav-item">
-                                <button class="contact_btn" style="z-index: 10; border: none; background-color: #ffffff00; color: #fff;" onclick="downloadEncryptedJSON()"><i class="fa-solid fa-cloud-arrow-down"></i>&nbsp;Backup</button>
+                                <button class="contact_btn"
+                                    style="z-index: 10; border: none; background-color: #ffffff00; color: #fff;"
+                                    onclick="downloadEncryptedJSON()"><i
+                                        class="fa-solid fa-cloud-arrow-down"></i>&nbsp;Backup</button>
                             </li>
                             <li class="nav-item">
-                                <button class="contact_btn" style="z-index: 10; border: none; background-color: #ffffff00; color: #fff;" onclick="logoutUser()">Logout</button>
+                                <button class="contact_btn"
+                                    style="z-index: 10; border: none; background-color: #ffffff00; color: #fff;"
+                                    onclick="logoutUser()">Logout</button>
                             </li>
                         </ul>
                     </div>
@@ -102,14 +107,16 @@
                 <input required type="text" placeholder="Vacancy Name" id="vacancy_name">
                 <textarea placeholder="Job Description" name="" id="job_description" cols="61"></textarea>
                 <input required type="number" placeholder="Experience in Years" id="experience">
-                <label style="color: #fff;">Emter the application deadline below</label>
+                <label style="color: #fff;">Enter the application deadline below</label>
                 <input required type="date" placeholder="Application Deadline" id="deadline">
-                <button type="submit" id="createV">Add Vacancy</button>
-                <button id="readV">Read ID</button>
-                <button id="updateV">Update</button>
-                <button id="deleteV">Delete</button>
+
+                <button type="submit" id="createV">Add / Save</button>
+                <button id="clear" onclick="clearAllForms()">Clear Form</button>
+                <!-- <button id="updateV">Update</button> -->
+                <!-- <button id="deleteV">Delete</button> -->
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
+                <button class="admin_searchButtton" onclick="refreshVacancyTable()">Refresh</button>
                 <div class="vacancy_table_wrapper">
                     <div class="vacancy_table">
                         LOADING DATA....
@@ -120,7 +127,8 @@
     </section>
 
     <section class="certifications_admin_board">
-        <h4 style="color: #fff;">Plyofit &nbsp;&nbsp;>>&nbsp;&nbsp;  Dashboard &nbsp;&nbsp;>>&nbsp;&nbsp; Certifications</h4>
+        <h4 style="color: #fff;">Plyofit &nbsp;&nbsp;>>&nbsp;&nbsp; Dashboard &nbsp;&nbsp;>>&nbsp;&nbsp; Certifications
+        </h4>
         <div class="row">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 careers_editor_area">
                 <form action="">
@@ -137,9 +145,6 @@
                     <button id="updateC">Update</button>
                     <button id="deleteC">Delete</button>
                 </form>
-
-
-
 
 
             </div>
