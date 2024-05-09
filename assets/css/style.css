@@ -2958,6 +2958,13 @@ textarea {
     cursor: pointer;
 }
 
+.admin_sidebar_mobile div.active,
+.admin_sidebar div.active {
+    color: #f003a0;
+    font-weight: bold;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .careers_admin_board {

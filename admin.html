@@ -80,7 +80,7 @@
     </div>
     <!-- OUR SERVICES SECTION -->
     <section class="admin_sidebar_mobile">
-        <div class="admin_sidebar_mobile_careers_bar">
+        <div class="active admin_sidebar_mobile_careers_bar">
             Careers
         </div>
         <div class="admin_sidebar_mobile_Certifications_bar">
@@ -92,7 +92,7 @@
         <div class="admin_sidebar_profile_bar">
             ADMIN
         </div>
-        <div class="admin_sidebar_careers_bar">
+        <div class="active admin_sidebar_careers_bar">
             Careers
         </div>
         <div class="admin_sidebar_Certifications_bar">
@@ -116,7 +116,7 @@
                 <!-- <button id="deleteV">Delete</button> -->
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
-                <button class="admin_searchButtton" onclick="refreshVacancyTable()">Refresh</button>
+                <button class="admin_searchButtton" onclick="refreshVacancyTable()"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Refresh</button>
                 <div class="vacancy_table_wrapper">
                     <div class="vacancy_table">
                         LOADING DATA....
@@ -140,10 +140,10 @@
                     <!-- <label style="font-size: 80%; color: #fff;">Note: Repeated award name entry for same person is to be
                         avoided</label> -->
                     <input type="text" placeholder="Certifying Authority" id="cert_athority">
-                    <button id="createC">Add Certificate</button>
-                    <button id="readC">Read ID</button>
-                    <button id="updateC">Update</button>
-                    <button id="deleteC">Delete</button>
+                    <button id="createC">Add / Save</button>
+                    <button onclick="clearAllForms()">Clear Form</button>
+                    <!-- <button id="updateC">Update</button> -->
+                    <!-- <button id="deleteC">Delete</button> -->
                 </form>
 
 
@@ -151,8 +151,8 @@
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12 careers_table_area">
                 <input id="admin_searchBox" class="admin_searchBox" type="text"
                     placeholder="Search using Name/ID/Mob./Student Code">
-                <button class="admin_searchButtton" id="admin_searchButtton">Search</button>
-                <button class="admin_searchButtton" onclick="refreshCertificateTable()">Refresh Table</button>
+                <button class="admin_searchButtton" id="admin_searchButtton"><i class="fa-solid fa-magnifying-glass"></i>&nbsp;&nbsp;Search</button>
+                <button class="admin_searchButtton" onclick="refreshCertificateTable()"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Refresh Table</button>
                 <div class="certifications_table_wrapper">
                     <div class="certifications_table_area">
                         <!-- Certification Table will appear here -->

@@ -144,8 +144,9 @@ document.getElementById("createV").onclick = function () {
 
 
 
-
+//****************************************************************************
 // Function to create the vacancies table with expand/collapse functionality
+//****************************************************************************
 function createVacanciesTable(snapshot) {
     // Clear previous content of the dummy_table div
     var tableDiv = document.querySelector(".vacancy_table");
@@ -307,89 +308,94 @@ document.getElementById("createC").onclick = function () {
 
 
 //function to read certificate data 
-document.getElementById("readC").onclick = function () {
-    readFormC();
+// document.getElementById("readC").onclick = function () {
+//     readFormC();
 
-    if (certificateId) {
-        firebase
-            .database()
-            .ref("certificates/" + certificateId)
-            .on("value", function (snap) {
-                document.getElementById("certificate_id").value = snap.val().certificate_id;
-                document.getElementById("student_name").value = snap.val().student_name;
-                document.getElementById("student_code").value = snap.val().student_code;
-                document.getElementById("phone").value = snap.val().phone;
-                document.getElementById("course_title").value = snap.val().course_title;
-                document.getElementById("cert_athority").value = snap.val().cert_athority;
-            });
-    } else {
-        alert("Please enter a Certificate ID ID to read Certification data.");
-    }
-};
+//     if (certificateId) {
+//         firebase
+//             .database()
+//             .ref("certificates/" + certificateId)
+//             .on("value", function (snap) {
+//                 document.getElementById("certificate_id").value = snap.val().certificate_id;
+//                 document.getElementById("student_name").value = snap.val().student_name;
+//                 document.getElementById("student_code").value = snap.val().student_code;
+//                 document.getElementById("phone").value = snap.val().phone;
+//                 document.getElementById("course_title").value = snap.val().course_title;
+//                 document.getElementById("cert_athority").value = snap.val().cert_athority;
+//             });
+//     } else {
+//         alert("Please enter a Certificate ID ID to read Certification data.");
+//     }
+// };
 
 
 
 
 //function to update certificate data 
-document.getElementById("updateC").onclick = function () {
-    readFormC();
+// document.getElementById("updateC").onclick = function () {
+//     readFormC();
 
-    if (certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority) {
-        firebase
-            .database()
-            .ref("certificates/" + certificateId)
-            .update({
-                certificate_id: certificateId,
-                student_name: studentName,
-                student_code: studentCode,
-                phone: mobileNumber,
-                course_title: courseTitle,
-                cert_athority: cert_athority,
-            });
-        alert("Certification Details Updated");
-    } else {
-        alert("Please enter a full details to update Certification data.");
-    }
+//     if (certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority) {
+//         firebase
+//             .database()
+//             .ref("certificates/" + certificateId)
+//             .update({
+//                 certificate_id: certificateId,
+//                 student_name: studentName,
+//                 student_code: studentCode,
+//                 phone: mobileNumber,
+//                 course_title: courseTitle,
+//                 cert_athority: cert_athority,
+//             });
+//         alert("Certification Details Updated");
+//     } else {
+//         alert("Please enter a full details to update Certification data.");
+//     }
 
-    document.getElementById("certificate_id").value = "";
-    document.getElementById("student_name").value = "";
-    document.getElementById("student_code").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("course_title").value = "";
-    document.getElementById("cert_athority").value = "";
-};
+//     document.getElementById("certificate_id").value = "";
+//     document.getElementById("student_name").value = "";
+//     document.getElementById("student_code").value = "";
+//     document.getElementById("phone").value = "";
+//     document.getElementById("course_title").value = "";
+//     document.getElementById("cert_athority").value = "";
+// };
 
 
 
 
 //function to remove certificate data 
-document.getElementById("deleteC").onclick = function () {
-    readFormC();
+// document.getElementById("deleteC").onclick = function () {
+//     readFormC();
 
-    if (certificateId) {
-        firebase
-            .database()
-            .ref("certificates/" + certificateId)
-            .remove();
-        alert("Certification Details removed");
-    } else {
-        alert("Please enter a Certifiate ID to delete Certification data.");
-    }
+//     if (certificateId) {
+//         firebase
+//             .database()
+//             .ref("certificates/" + certificateId)
+//             .remove();
+//         alert("Certification Details removed");
+//     } else {
+//         alert("Please enter a Certifiate ID to delete Certification data.");
+//     }
 
-    document.getElementById("certificate_id").value = "";
-    document.getElementById("student_name").value = "";
-    document.getElementById("student_code").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("course_title").value = "";
-    document.getElementById("cert_athority").value = "";
+//     document.getElementById("certificate_id").value = "";
+//     document.getElementById("student_name").value = "";
+//     document.getElementById("student_code").value = "";
+//     document.getElementById("phone").value = "";
+//     document.getElementById("course_title").value = "";
+//     document.getElementById("cert_athority").value = "";
 
-};
-
-
+// };
 
 
+
+
+
+
+
+
+// ************************************************************
 // Function to create the certifications table
-// Updated createCertificationsTable function
+// ************************************************************
 function createCertificationsTable(snapshot) {
     var tableDiv = document.querySelector(".certifications_table_area");
     tableDiv.innerHTML = "";
@@ -533,40 +539,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     certificationData.phone.toLowerCase().includes(searchTerm)) {
                     searchResults.push(certificationData);
                 }
-                
+
             });
 
             // Display search results as a table
             displaySearchResults(searchResults);
             var certificationData = childSnapshot.val();
-            // Edit button functionality
-        var editButton = row.querySelector(".editButton");
-        editButton.addEventListener("click", function () {
-            // Fill form fields with respective data for editing
-            document.getElementById("certificate_id").value = certificationData.certificate_id;
-            document.getElementById("student_name").value = certificationData.student_name;
-            document.getElementById("student_code").value = certificationData.student_code;
-            document.getElementById("phone").value = certificationData.phone;
-            document.getElementById("course_title").value = certificationData.course_title;
-            document.getElementById("cert_athority").value = certificationData.cert_athority;
-        });
 
-        // Delete button functionality
-        var deleteButton = row.querySelector(".deleteButton");
-        deleteButton.addEventListener("click", function () {
-            // Show confirmation dialog
-            var confirmDelete = confirm("Are you sure you want to delete this certificate?");
-            if (confirmDelete) {
-                // Remove respective data from the database
-                childSnapshot.ref.remove()
-                    .then(function () {
-                        console.log("Certificate removed successfully");
-                    })
-                    .catch(function (error) {
-                        console.error("Error removing certificate: ", error);
-                    });
-            }
-        });
         });
     });
 
@@ -574,10 +553,10 @@ document.addEventListener("DOMContentLoaded", function () {
         var tableHTML = "<table class='certifications_table'>" +
             "<th>Action</th><th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Certifying Authority</th>" +
             "<tbody>";
-
+    
         results.forEach(function (certificationData) {
             tableHTML += "<tr>" +
-                "<td><button class='editButton'><i class='fa-solid fa-pen-to-square'></i>&nbsp;&nbsp;Edit</button><button class='deleteButton'><i class='fa-solid fa-trash'></i>&nbsp;&nbsp;Delete</button></td>"+
+                "<td><button class='editButton'><i class='fa-solid fa-pen-to-square'></i>&nbsp;&nbsp;Edit</button><button class='deleteButton'><i class='fa-solid fa-trash'></i>&nbsp;&nbsp;Delete</button></td>" +
                 "<td>" + certificationData.certificate_id + "</td>" +
                 "<td>" + certificationData.student_name + "</td>" +
                 "<td>" + certificationData.student_code + "</td>" +
@@ -586,10 +565,49 @@ document.addEventListener("DOMContentLoaded", function () {
                 "<td>" + certificationData.cert_athority + "</td>" +
                 "</tr>";
         });
-
+    
         tableHTML += "</tbody></table>";
         certificationsTableArea.innerHTML = tableHTML;
+    
+        // Add event listeners for edit and delete buttons
+        var editButtons = document.querySelectorAll(".editButton");
+        editButtons.forEach(function (button, index) {
+            button.addEventListener("click", function () {
+                // Fill form fields with respective data for editing
+                document.getElementById("certificate_id").value = results[index].certificate_id;
+                document.getElementById("student_name").value = results[index].student_name;
+                document.getElementById("student_code").value = results[index].student_code;
+                document.getElementById("phone").value = results[index].phone;
+                document.getElementById("course_title").value = results[index].course_title;
+                document.getElementById("cert_athority").value = results[index].cert_athority;
+            });
+        });
+    
+        var deleteButtons = document.querySelectorAll(".deleteButton");
+        deleteButtons.forEach(function (button, index) {
+            button.addEventListener("click", function () {
+                var confirmDelete = confirm("Are you sure you want to delete this certificate?");
+                if (confirmDelete) {
+                    // Remove respective data from the database
+                    var certificatesRef = firebase.database().ref("certificates");
+                    certificatesRef.once("value", function (snapshot) {
+                        snapshot.forEach(function (childSnapshot) {
+                            if (childSnapshot.val().certificate_id === results[index].certificate_id) {
+                                childSnapshot.ref.remove()
+                                    .then(function () {
+                                        console.log("Certificate removed successfully");
+                                    })
+                                    .catch(function (error) {
+                                        console.error("Error removing certificate: ", error);
+                                    });
+                            }
+                        });
+                    });
+                }
+            });
+        });
     }
+    
 });
 
 
@@ -599,8 +617,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-//download backup
+// ******************************************
+// Download Backup
+// ******************************************
 function downloadEncryptedJSON() {
     const databaseURL = 'https://plyofit-49b60-default-rtdb.firebaseio.com/';
     const jsonDataURL = databaseURL + '.json';
