@@ -8,7 +8,7 @@ function logoutUser() {
             sessionStorage.clear();
 
             // Redirect to login page after logout
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         }).catch((error) => {
             console.error(error.message);
         });
@@ -34,3 +34,11 @@ signoutBtn.addEventListener("click", logoutUser);
 
 // Check if the user is logged in when the page loads
 window.addEventListener("load", checkUserCred);
+
+
+
+
+
+
+
+

@@ -657,3 +657,51 @@ function downloadEncryptedJSON() {
             console.error('There was a problem with the fetch operation:', error);
         });
 };
+
+
+
+
+// *************************************************
+// funcion to logouut user after 1hr of inactivity
+// *************************************************
+
+window.onload = function () {
+    var currentDate = new Date();
+    console.log("Page loaded at: " + currentDate);
+    console.log("Logged in");
+
+    // Variables to track user activity
+    var userActive = false;
+    var inactivityTimeout;
+
+    // Function to reset inactivity timeout
+    function resetInactivityTimeout() {
+        clearTimeout(inactivityTimeout);
+        inactivityTimeout = setTimeout(function () {
+            console.log("30 minutes of inactivity detected");
+            // Process 2
+            console.log("Process 2");
+
+            // Process 3
+            auth.signOut().then(() => {
+                // Clear any user session data
+                // For example, clear any local storage or session storage
+                localStorage.clear(); // You can use sessionStorage.clear() if you're using sessionStorage
+                sessionStorage.clear();
+
+                // Redirect to login page after logout
+                window.location.href = 'index.html';
+            });
+        }, 60 * 60 * 1000); // 30 minutes
+    }
+
+    // Event listener for user activity
+    document.addEventListener("mousemove", function () {
+        userActive = true;
+        resetInactivityTimeout();
+    });
+
+    // Start initial inactivity timeout
+    resetInactivityTimeout();
+};
+

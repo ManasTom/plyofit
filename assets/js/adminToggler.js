@@ -16,6 +16,27 @@ document.addEventListener("DOMContentLoaded", function () {
         section.classList.add("active");
     }
 
+    function setDefaultSection() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fromCareersAdmin = urlParams.has('from') && urlParams.get('from') === 'careersAdmin';
+        const fromStudentsAdmin = urlParams.has('from') && urlParams.get('from') === 'studentsAdmin';
+
+        if (fromCareersAdmin) {
+            // Display careers section by default
+            setActiveSection(careersBar);
+            careersAdminBoard.style.display = "block";
+            certificationsAdminBoard.style.display = "none";
+        } else if (fromStudentsAdmin) {
+            // Display certifications section by default
+            setActiveSection(certificationsBar);
+            certificationsAdminBoard.style.display = "block";
+            careersAdminBoard.style.display = "none";
+        }
+    }
+
+    // Set default section when the page loads
+    setDefaultSection();
+
     careersBarMobile.addEventListener("click", function () {
         setActiveSection(careersBarMobile);
         careersAdminBoard.style.display = "block";
