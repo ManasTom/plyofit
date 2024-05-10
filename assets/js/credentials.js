@@ -6,8 +6,7 @@ function logoutUser() {
             // For example, clear any local storage or session storage
             localStorage.clear(); // You can use sessionStorage.clear() if you're using sessionStorage
             sessionStorage.clear();
-
-            // Redirect to login page after logout
+            // Redirect to home page after logout
             window.location.href = 'index.html';
         }).catch((error) => {
             console.error(error.message);

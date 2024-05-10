@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="assets/js/login.js"></script>
 </head>
 
 <body>
@@ -25,6 +27,15 @@
                     style="font-weight: bold; cursor: pointer; border-radius: 0.5rem; padding: 3%; width: max-content; height: auto; border: 1px solid #fff; background-color: #000000e3; color: #ffffff;">
                     LOGIN
                 </button>
+                <button onclick="redirectToHome()"
+                    style="cursor: pointer; border: 1px solid #ffffff42; background-color: #ffffff00; color: #ffffff77; margin-left: 20%; padding: 3%; border-radius: 5px;">
+                    <i style="color: #ffffff77;" class="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Return home
+                </button>
+                <script>
+                    function redirectToHome(url) {
+                        window.location.href = "index.html";
+                    }
+                </script>
                 <!-- <a href="">
                     <span></span>
                     <span></span>
@@ -35,6 +46,17 @@
             </form>
         </div>
     </section>
+
+
+    <!-- Import the Firebase core (always required) -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <!-- Import only the Firebase database module -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+    <script src="assets/js/firconfig.js"></script>
+    <script src="assets/js/login.js"></script>
+
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";

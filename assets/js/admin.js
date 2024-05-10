@@ -15,12 +15,16 @@ function readFomV() {
     console.log(jobId, vacancyName, JobDescriptioon, Experience, DeadLine);
 }
 
-function clearAllForms() {
+function clearVaccancyForm() {
+    event.preventDefault();
     document.getElementById("job_id").value = "";
     document.getElementById("vacancy_name").value = "";
     document.getElementById("job_description").value = "";
     document.getElementById("experience").value = "";
     document.getElementById("deadline").value = "";
+}
+function clearCertificationsForm() {
+    event.preventDefault();
     document.getElementById("certificate_id").value = "";
     document.getElementById("student_name").value = "";
     document.getElementById("student_code").value = "";
@@ -46,7 +50,7 @@ document.getElementById("createV").onclick = function () {
                 deadline: DeadLine,
             });
         alert("New vacancy added");
-        clearAllForms();
+        clearVaccancyForm();
     } else {
         alert("Please enter Full details to insert vacancy data.");
     }
