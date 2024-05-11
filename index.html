@@ -606,10 +606,10 @@
                                 <a onclick="CloseReviewPopup()"><i class="fa-solid fa-x"></i></a><br><br>
                             </div>
 
-                            <form action="">
-                                <input type="text" placeholder="Full Name" id="fullName"><br>
-                                <input type="email" placeholder="Email ID" id="email"><br>
-                                <textarea placeholder="Your Message" id="message" rows="5"></textarea><br>
+                            <form action="submit_review.php" method="post">
+                                <input type="text" placeholder="Full Name" id="fullName" name="fullName"><br>
+                                <input type="email" placeholder="Email ID" id="email" name="email"><br>
+                                <textarea placeholder="Your Message" id="message" name="message" rows="5"></textarea><br>
                                 <button id="submitReview">Send &nbsp;<i
                                         class="fa-solid fa-paper-plane"></i></button>
                             </form>
