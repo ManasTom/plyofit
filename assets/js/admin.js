@@ -1,6 +1,6 @@
-// ************************************************************************************
+// ********************************************************************************************
 //CAREERS SECTION ADMIN PANNEL
-// ************************************************************************************
+// ********************************************************************************************
 
 // variable decerations
 var jobId, vacancyName, JobDescriptioon, Experience, DeadLine;
@@ -54,10 +54,6 @@ document.getElementById("createV").onclick = function () {
     } else {
         alert("Please enter Full details to insert vacancy data.");
     }
-
-
-
-
 };
 
 //function to read vacancy data 
@@ -148,9 +144,9 @@ document.getElementById("createV").onclick = function () {
 
 
 
-//****************************************************************************
+// ********************************************************************************************
 // Function to create the vacancies table with expand/collapse functionality
-//****************************************************************************
+// ********************************************************************************************
 function createVacanciesTable(snapshot) {
     // Clear previous content of the dummy_table div
     var tableDiv = document.querySelector(".vacancy_table");
@@ -258,9 +254,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// ************************************************************************************
+// ********************************************************************************************
 //CERTIFICATIONS SECTION ADMIN PANNEL
-// ************************************************************************************
+// ********************************************************************************************
 
 // variable decerations
 var certificateId, studentName, studentCode, mobileNumber, courseTitle, cert_athority;
@@ -397,9 +393,9 @@ document.getElementById("createC").onclick = function () {
 
 
 
-// ************************************************************
+// ********************************************************************************************
 // Function to create the certifications table
-// ************************************************************
+// ********************************************************************************************
 function createCertificationsTable(snapshot) {
     var tableDiv = document.querySelector(".certifications_table_area");
     tableDiv.innerHTML = "";
@@ -464,9 +460,9 @@ function createCertificationsTable(snapshot) {
 
 
 
-// ************************************************************************************
+// ********************************************************************************************
 //code to prevent default page refresh on submissions
-// ************************************************************************************
+// ********************************************************************************************
 
 document.addEventListener("DOMContentLoaded", function () {
     // Prevent page refresh on button clicks
@@ -490,9 +486,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// ************************************************************************************
+// ********************************************************************************************
 // function to refresh certifications table data
-// ************************************************************************************
+// ********************************************************************************************
 function refreshCertificateTable() {
     var certificationsRef = firebase.database().ref("certificates");
     certificationsRef.once("value", function (snapshot) {
@@ -501,9 +497,9 @@ function refreshCertificateTable() {
 }
 
 
-// ************************************************************************************
+// ********************************************************************************************
 // function to refresh vacancy table data
-// ************************************************************************************
+// ********************************************************************************************
 function refreshVacancyTable() {
     var vacancyRef = firebase.database().ref("vacancies");
     vacancyRef.once("value", function (snapshot) {
@@ -513,9 +509,9 @@ function refreshVacancyTable() {
 
 
 
-// ************************************************************************************
+// ********************************************************************************************
 // SEARCH FUNCTIONALITY
-// ************************************************************************************
+// ********************************************************************************************
 
 document.addEventListener("DOMContentLoaded", function () {
     var searchInput = document.getElementById("admin_searchBox");
@@ -557,7 +553,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var tableHTML = "<table class='certifications_table'>" +
             "<th>Action</th><th>Certificate ID</th><th>Student Name</th><th>Student Code</th><th>Mobile Number</th><th>Course Title</th><th>Certifying Authority</th>" +
             "<tbody>";
-    
+
         results.forEach(function (certificationData) {
             tableHTML += "<tr>" +
                 "<td><button class='editButton'><i class='fa-solid fa-pen-to-square'></i>&nbsp;&nbsp;Edit</button><button class='deleteButton'><i class='fa-solid fa-trash'></i>&nbsp;&nbsp;Delete</button></td>" +
@@ -569,10 +565,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 "<td>" + certificationData.cert_athority + "</td>" +
                 "</tr>";
         });
-    
+
         tableHTML += "</tbody></table>";
         certificationsTableArea.innerHTML = tableHTML;
-    
+
         // Add event listeners for edit and delete buttons
         var editButtons = document.querySelectorAll(".editButton");
         editButtons.forEach(function (button, index) {
@@ -586,7 +582,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("cert_athority").value = results[index].cert_athority;
             });
         });
-    
+
         var deleteButtons = document.querySelectorAll(".deleteButton");
         deleteButtons.forEach(function (button, index) {
             button.addEventListener("click", function () {
@@ -611,7 +607,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
-    
+
 });
 
 
@@ -621,9 +617,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// ******************************************
+// ********************************************************************************************
 // Download Backup
-// ******************************************
+// ********************************************************************************************
 function downloadEncryptedJSON() {
     const databaseURL = 'https://plyofit-49b60-default-rtdb.firebaseio.com/';
     const jsonDataURL = databaseURL + '.json';
@@ -665,9 +661,9 @@ function downloadEncryptedJSON() {
 
 
 
-// *************************************************
+// ********************************************************************************************
 // funcion to logouut user after 1hr of inactivity
-// *************************************************
+// ********************************************************************************************
 
 window.onload = function () {
     var currentDate = new Date();
@@ -708,4 +704,8 @@ window.onload = function () {
     // Start initial inactivity timeout
     resetInactivityTimeout();
 };
+
+
+
+
 

@@ -2788,6 +2788,20 @@ textarea {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .admin-banner-section {
     background-color: #000;
     background-size: cover;
@@ -2831,6 +2845,16 @@ textarea {
 }
 
 .admin_sidebar_Certifications_bar {
+    background-color: #ffffff;
+    width: 100%;
+    height: max-content;
+    color: #000;
+    text-align: center;
+    padding: 5%;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+.admin_sidebar_Testimonials_bar {
     background-color: #ffffff;
     width: 100%;
     height: max-content;
@@ -2957,6 +2981,10 @@ textarea {
 .admin_sidebar_mobile_Certifications_bar {
     cursor: pointer;
 }
+.admin_sidebar_mobile_Testimonials_bar {
+    cursor: pointer;
+}
+
 
 .admin_sidebar_mobile div.active,
 .admin_sidebar div.active {
@@ -3041,39 +3069,43 @@ textarea {
 
 .vacancies_table tbody tr {
     background-color: #f0f0f0;
-    cursor:auto ;
+    cursor: auto;
 }
 
 
 
-.edit_btn{
+.edit_btn {
     border: none;
     margin-bottom: 8px;
 }
-.edit_btn i{
+
+.edit_btn i {
     color: #f003a0;
 }
 
-.delete_btn{
+.delete_btn {
     border: none;
 }
-.delete_btn i{
+
+.delete_btn i {
     color: red;
 }
 
 
-.editButton{
+.editButton {
     border: none;
     margin-bottom: 8px;
 }
-.editButton i{
+
+.editButton i {
     color: #f003a0;
 }
 
-.deleteButton{
+.deleteButton {
     border: none;
 }
-.deleteButton i{
+
+.deleteButton i {
     color: red;
 }
 
@@ -3481,8 +3513,117 @@ textarea {
 
 
 @media screen and (max-width: 768px) {
-    .qcklink{
+    .qcklink {
         text-align: left;
         margin-left: 20%;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Review_button {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #ffffff00;
+    color: #ffffff;
+    padding: 1% 2%;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 60px;
+    transition: 0.5s ease;
+}
+
+.Review_button:hover {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #f003a0;
+    color: #ffffff;
+    padding: 1% 2%;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-left: 60px;
+    font-weight: bold;
+}
+
+
+.Review_popup {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 300px;
+    width: max-content;
+    height: auto;
+    padding: 4%;
+    background-color: #a798a793;
+    border-radius: 20px;
+    border: 2px solid #f003a0;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.Review_popup input,
+textarea {
+    width: 25rem;
+    margin-bottom: 1rem;
+    padding: 2%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #ffffffc9;
+}
+
+.Review_popup button {
+    border: none;
+    width: 25rem;
+    border-radius: 5px;
+    padding: 2%;
+    background-color: #f003a0;
+}
+
+.Review_popup_closer{
+   width: 100%; 
+   text-align: right;
+
+}
+.Review_popup a{
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 768px) {
+    
+.Review_popup {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: max-content;
+    height: auto;
+    padding: 4%;
+    background-color: #a798a793;
+    border-radius: 20px;
+    border: 2px solid #f003a0;
+    margin-right: 1%;
+    text-align: center;
+}
 }

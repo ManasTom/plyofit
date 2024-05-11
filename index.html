@@ -595,16 +595,34 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 d-lg-block d-md-flex align-items-center">
                     <div class="testimonials_image">
                         <figure class="mb-0">
                             <!-- <img src="./assets/images/testimonials_image.png" alt=""> -->
                         </figure>
+                        <div class="Review_popup">
+                            <div class="Review_popup_closer">
+                                <a onclick="CloseReviewPopup()"><i class="fa-solid fa-x"></i></a><br><br>
+                            </div>
+
+                            <form action="">
+                                <input type="text" placeholder="Full Name" id="fullName"><br>
+                                <input type="email" placeholder="Email ID" id="email"><br>
+                                <textarea placeholder="Your Message" id="message" rows="5"></textarea><br>
+                                <button id="submitReview">Send &nbsp;<i
+                                        class="fa-solid fa-paper-plane"></i></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button onclick="DisplayReviewPopup()" class="Review_button">
+                Add Your Review &nbsp;<i class="fa-solid fa-thumbs-up"></i>
+            </button>
         </div>
     </section>
+
     <!-- PRICING TABLES SECTION -->
     <!-- <section class="pricing_tables_section">
         <div class="container">
@@ -1258,6 +1276,16 @@
     <script src="assets/js/video-section.js"></script>
     <script src="assets/js/counter.js"></script>
     <script src="assets/js/animation.js"></script>
+    <!-- Import the Firebase core (always required) -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <!-- Import only the Firebase database module -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+    <script src="assets/js/firconfig.js"></script>
+    <script src="assets/js/reviewSubmit.js"></script>
+    <script src="popup.js"></script>
+
 </body>
 
 </html>
