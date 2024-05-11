@@ -31,6 +31,7 @@ document.getElementById("submitReview").onclick = function(event) {
             email: Email,
             message: Message
         }).then(() => {
+            sendNotificationEmail();
             alert("Your message id submitted for reviewing");
             clearReviewForm();
         }).catch(error => {
@@ -40,3 +41,19 @@ document.getElementById("submitReview").onclick = function(event) {
         alert("Input fields cannot be empty");
     }
 };
+
+
+
+
+
+function sendNotificationEmail() {
+    // Make an AJAX call to send_notification.php
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "submit_review.php", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText); // Log the response from the PHP script
+        }
+    };
+    xhr.send();
+}

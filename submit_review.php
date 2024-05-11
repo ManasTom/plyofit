@@ -1,31 +1,17 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $fullName = $_POST['fullName'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    
-    // Set recipient email address
-    $to = "manastom670@gmail.com";
-    
-    // Set email subject
-    $subject = "New Review Submission from $fullName";
-    
-    // Construct email message
-    $email_message = "You have a new review submission from $fullName to be posted to Plyofit website\n";
-    $email_message .= "Click the link to review: https://manastom.github.io/plyofit/faq.html\n";
-    
-    // Set headers
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    
-    // Attempt to send email
-    if (mail($to, $subject, $email_message, $headers)) {
-        echo "Your review has been submitted successfully!";
-    } else {
-        echo "Oops! Something went wrong. Please try again later.";
-    }
+$to = "manas.illforddigital@gmail.com";
+$subject = "New Review Submitted";
+$message = "A new review has been submitted.";
+$headers = "From: manastom670@gmail.com" . "\r\n" .
+    "Reply-To: manastom670@gmail.com" . "\r\n" .
+    "X-Mailer: PHP/" . phpversion();
+
+// Send email
+$mailSent = mail($to, $subject, $message, $headers);
+
+if ($mailSent) {
+    echo "Email notification sent successfully.";
 } else {
-    echo "Access denied";
+    echo "Failed to send email notification.";
 }
 ?>
