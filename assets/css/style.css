@@ -3693,3 +3693,33 @@ textarea {
     border: 1px solid red;
     border-radius: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+.approved_reviews_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.approved_reviews_table th,
+.approved_reviews_table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.approved_reviews_table th {
+    background-color: #f2f2f2;
+}
+
+.approved_reviews_table tbody tr {
+    background-color: #f9f9f9;
+}
