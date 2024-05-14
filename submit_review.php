@@ -1,17 +1,25 @@
+
+
 <?php
-$to = "manas.illforddigital@gmail.com";
-$subject = "New Review Submitted";
-$message = "A new review has been submitted.";
-$headers = "From: manastom670@gmail.com" . "\r\n" .
-    "Reply-To: manastom670@gmail.com" . "\r\n" .
-    "X-Mailer: PHP/" . phpversion();
+    // Email configuration
+    $to = " manastom670@gmail.com";
+    $subject = "New review submission ";
+    $message = "You have a new review submission \n";
+    $message .= "Click the link below to access dashboard \n";
+    $message .= "https://demo.illforddigital.com/plyofit/admin.html";
 
-// Send email
-$mailSent = mail($to, $subject, $message, $headers);
+    // Additional headers for the main email
+    $headers = "From: Admin\r\n";
+    $headers .= "Reply-To: Admin\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-if ($mailSent) {
-    echo "Email notification sent successfully.";
-} else {
-    echo "Failed to send email notification.";
-}
+    // Sending email to main recipient
+    if (mail($to, $subject, $message, $headers)) {
+
+        echo "Your message has been sent successfully.";
+    } else {
+        echo "Failed to send message. Please try again later.";
+    }
+
+
 ?>

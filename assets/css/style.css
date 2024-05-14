@@ -3627,3 +3627,69 @@ textarea {
     text-align: center;
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.reviews_admin_board {
+    width: 90%;
+    height: max-content;
+    background-color: #000;
+    margin-left: 10%;
+    display: none;
+    padding: 1%;
+}
+
+
+.reviews_table_wrapper {
+    width: 100%;
+    height: 400px;
+    /* Adjust height as needed */
+    overflow: auto;
+}
+.pending_reviews_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pending_reviews_table th,
+.pending_reviews_table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.pending_reviews_table th {
+    background-color: #f2f2f2;
+    color: #000000;
+    font-weight: bold;
+    text-align: left;
+}
+
+.pending_reviews_table tbody tr {
+    background-color: #f9f9f9;
+}
+
+.actionColumn{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.approve_btn{
+    background-color: #23e633;
+    border-radius: 5px;
+}
+
+.delete_btn{
+    border: 1px solid red;
+    border-radius: 5px;
+}

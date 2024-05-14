@@ -31,8 +31,9 @@ document.getElementById("submitReview").onclick = function(event) {
             email: Email,
             message: Message
         }).then(() => {
+            // After successfully submitting to Firebase, send notification email
             sendNotificationEmail();
-            alert("Your message id submitted for reviewing");
+            alert("Your message is submitted for reviewing");
             clearReviewForm();
         }).catch(error => {
             alert("Failed to submit review: " + error.message);
@@ -41,10 +42,6 @@ document.getElementById("submitReview").onclick = function(event) {
         alert("Input fields cannot be empty");
     }
 };
-
-
-
-
 
 function sendNotificationEmail() {
     // Make an AJAX call to send_notification.php
