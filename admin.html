@@ -89,6 +89,9 @@
         <div class="admin_sidebar_mobile_Testimonials_bar">
             Testimonials
         </div>
+        <div class="admin_sidebar_mobile_Gallery_bar">
+            Gallery
+        </div>
     </section>
 
     <section class="admin_sidebar">
@@ -103,6 +106,9 @@
         </div>
         <div class="admin_sidebar_Testimonials_bar">
             Testimonials
+        </div>
+        <div class="admin_sidebar_Gallery_bar">
+            Gallery
         </div>
     </section>
     <section class="careers_admin_board">
@@ -198,7 +204,33 @@
             </div>
         </div>
     </section>
-    
+
+    <section class="gallery_admin_board">
+        <input id="galleryImage" type="file" multiple>
+        <select name="" id="imageCategory">
+            <option value="fitness">FITNESS</option>
+            <option value="health">HEALTH</option>
+            <option value="nutrition">NUTRITION</option>
+            <option value="training">TRAINING</option>
+        </select>
+        <button class="admin_AddImageButtton"><i class="fa-solid fa-file-arrow-up"></i>&nbsp;&nbsp;ADD IMAGE</button>
+        <div id="progressContainer"></div>
+
+        <div class="GalleryImageDisplay">
+            <!-- gallery grid appears here -->
+
+        </div>
+
+        <!-- Popup for displaying clicked image -->
+        <div id="imagePopup" class="popup hidden">
+            <div class="popup-content">
+                <img id="popupImage" src="" alt="">
+                <button id="deleteButton">DELETE</button>
+            </div>
+        </div>
+
+    </section>
+
 
 
 
@@ -348,6 +380,7 @@
     <!-- Import only the Firebase database module -->
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
     <script src="assets/js/firconfig.js"></script>
     <script src="assets/js/admin.js"></script>

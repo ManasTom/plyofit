@@ -842,16 +842,161 @@ function showApprovedReviews() {
 
 
 
+// ********************************************************************************************
+// GALLERY
+// ********************************************************************************************
+
+document.querySelector('.admin_AddImageButtton').addEventListener('click', async () => {
+    const fileInput = document.getElementById('galleryImage');
+    const categorySelect = document.getElementById('imageCategory');
+    const progressContainer = document.getElementById('progressContainer');
+    const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB in bytes
+
+    if (!progressContainer) {
+        console.error("Progress container not found.");
+        return;
+    }
+
+    if (fileInput.files.length === 0) {
+        alert("Please select files to upload.");
+        return;
+    }
+
+    const files = fileInput.files;
+    const category = categorySelect.value;
+
+    progressContainer.innerHTML = ''; // Clear previous progress bars
+
+    Array.from(files).forEach((file, index) => {
+        if (file.size > MAX_FILE_SIZE) {
+            alert(`File "${file.name}" exceeds the 2 MB limit and will not be uploaded.`);
+            return;
+        }
+
+        const storageRef = firebase.storage().ref().child(`gallery/${file.name}`);
+
+        // Create a progress bar for each file
+        const progressBar = document.createElement('progress');
+        progressBar.id = `uploadProgress${index}`;
+        progressBar.value = 0;
+        progressBar.max = 100;
+        progressBar.style.width = '100%';
+        progressContainer.appendChild(progressBar);
+
+        try {
+            // Upload file to Firebase Storage with progress listener
+            const uploadTask = storageRef.put(file);
+
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    progressBar.value = progress;
+                    console.log('Upload is ' + progress + '% done');
+                },
+                (error) => {
+                    // Handle unsuccessful uploads
+                    console.error("Error uploading image:", error);
+                    alert("Error uploading image: " + error.message);
+                    progressBar.style.display = 'none';
+                },
+                async () => {
+                    // Handle successful uploads on complete
+                    const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+
+                    // Store data in Realtime Database
+                    const newImageKey = firebase.database().ref().child('gallery').push().key;
+                    const imageData = {
+                        url: downloadURL,
+                        category: category,
+                        name: file.name,
+                        timestamp: Date.now()
+                    };
+
+                    await firebase.database().ref(`gallery/${newImageKey}`).set(imageData);
+
+                    alert(`Image ${file.name} uploaded and data saved successfully!`);
+                    progressBar.style.display = 'none';
+                }
+            );
+        } catch (error) {
+            console.error("Error uploading image and saving data:", error);
+            alert("Error uploading image and saving data.");
+            progressBar.style.display = 'none';
+        }
+    });
+});
 
 
+function displayImagesFromDatabase() {
+    const galleryDisplay = document.querySelector('.GalleryImageDisplay');
+    galleryDisplay.innerHTML = '';
 
+    const galleryRef = firebase.database().ref('gallery');
+    galleryRef.once('value', (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const imageData = childSnapshot.val();
+            const imgElement = document.createElement('img');
+            imgElement.src = imageData.url;
+            imgElement.alt = imageData.name;
+            imgElement.dataset.key = childSnapshot.key;
 
+            imgElement.addEventListener('click', () => showImagePopup(imageData.url, imageData.name, childSnapshot.key));
 
+            galleryDisplay.appendChild(imgElement);
+        });
+    });
+}
 
+function showImagePopup(imageUrl, imageName, imageKey) {
+    const popup = document.getElementById('imagePopup');
+    const popupImage = document.getElementById('popupImage');
+    const deleteButton = document.getElementById('deleteButton');
 
+    popupImage.src = imageUrl;
+    popupImage.alt = imageName;
+    popup.classList.remove('hidden');
 
+    deleteButton.onclick = () => deleteImage(imageKey, imageName);
 
+    // Close the popup when clicking outside of the popup content
+    window.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            closePopup();
+        }
+    });
+}
 
+function deleteImage(imageKey, imageName) {
+    if (confirm("Are you sure you want to delete this image?")) {
+        const storageRef = firebase.storage().ref().child(`gallery/${imageName}`);
+        
+        storageRef.delete()
+            .then(() => {
+                firebase.database().ref(`gallery/${imageKey}`).remove()
+                    .then(() => {
+                        alert("Image deleted successfully!");
+                        displayImagesFromDatabase();
+                        closePopup();
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting image from database:", error);
+                        alert(`Error deleting image from database: ${error.message}`);
+                    });
+            })
+            .catch((error) => {
+                console.error("Error deleting image from storage:", error);
+                alert(`Error deleting image from storage: ${error.message}`);
+            });
+    }
+}
+
+function closePopup() {
+    const popup = document.getElementById('imagePopup');
+    popup.classList.add('hidden');
+}
+
+window.addEventListener('load', displayImagesFromDatabase);
 
 
 
@@ -901,7 +1046,7 @@ function showApprovedReviews() {
 // Download Backup
 // ********************************************************************************************
 function downloadEncryptedJSON() {
-    const databaseURL = 'https://plyofit-49b60-default-rtdb.firebaseio.com/';
+    const databaseURL = 'https://plyofit-3798c-default-rtdb.firebaseio.com/';
     const jsonDataURL = databaseURL + '.json';
 
     fetch(jsonDataURL)

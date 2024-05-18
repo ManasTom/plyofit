@@ -2854,7 +2854,19 @@ textarea {
     border-bottom: 1px solid black;
     cursor: pointer;
 }
+
 .admin_sidebar_Testimonials_bar {
+    background-color: #ffffff;
+    width: 100%;
+    height: max-content;
+    color: #000;
+    text-align: center;
+    padding: 5%;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+}
+
+.admin_sidebar_Gallery_bar {
     background-color: #ffffff;
     width: 100%;
     height: max-content;
@@ -2981,9 +2993,15 @@ textarea {
 .admin_sidebar_mobile_Certifications_bar {
     cursor: pointer;
 }
+
 .admin_sidebar_mobile_Testimonials_bar {
     cursor: pointer;
 }
+
+.admin_sidebar_mobile_Gallery_bar {
+    cursor: pointer;
+}
+
 
 
 .admin_sidebar_mobile div.active,
@@ -3597,12 +3615,13 @@ textarea {
     background-color: #f003a0;
 }
 
-.Review_popup_closer{
-   width: 100%; 
-   text-align: right;
+.Review_popup_closer {
+    width: 100%;
+    text-align: right;
 
 }
-.Review_popup a{
+
+.Review_popup a {
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
@@ -3610,22 +3629,22 @@ textarea {
 
 
 @media screen and (max-width: 768px) {
-    
-.Review_popup {
-    display: none;
-    z-index: 10;
-    position: absolute;
-    right: 0;
-    top: 10px;
-    width: max-content;
-    height: auto;
-    padding: 4%;
-    background-color: #a798a793;
-    border-radius: 20px;
-    border: 2px solid #f003a0;
-    margin-right: 1%;
-    text-align: center;
-}
+
+    .Review_popup {
+        display: none;
+        z-index: 10;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        width: max-content;
+        height: auto;
+        padding: 4%;
+        background-color: #a798a793;
+        border-radius: 20px;
+        border: 2px solid #f003a0;
+        margin-right: 1%;
+        text-align: center;
+    }
 }
 
 
@@ -3656,6 +3675,7 @@ textarea {
     /* Adjust height as needed */
     overflow: auto;
 }
+
 .pending_reviews_table {
     width: 100%;
     border-collapse: collapse;
@@ -3678,18 +3698,18 @@ textarea {
     background-color: #f9f9f9;
 }
 
-.actionColumn{
+.actionColumn {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.approve_btn{
+.approve_btn {
     background-color: #23e633;
     border-radius: 5px;
 }
 
-.delete_btn{
+.delete_btn {
     border: 1px solid red;
     border-radius: 5px;
 }
@@ -3749,17 +3769,129 @@ textarea {
 
 /* Default styles */
 .pending_reviews_table_area {
-    display: block; /* Show pending reviews by default */
+    display: block;
+    /* Show pending reviews by default */
 }
 
 .approved_reviews_table_area {
-    display: none; /* Hide approved reviews by default */
+    display: none;
+    /* Hide approved reviews by default */
 }
 
 .reviewTogglerPending {
-    background-color: #f003a0; /* Pending button active by default */
+    background-color: #f003a0;
+    /* Pending button active by default */
 }
 
 .reviewTogglerApproved {
-    background-color: #ff00aa3f; /* Approved button inactive by default */
+    background-color: #ff00aa3f;
+    /* Approved button inactive by default */
+}
+
+
+
+
+.gallery_admin_board {
+    width: 90%;
+    height: max-content;
+    background-color: #000;
+    margin-left: 10%;
+    display: none;
+    padding: 1%;
+}
+
+.gallery_admin_board input {
+    border: 1px solid #f003a0;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+
+}
+
+.gallery_admin_board select {
+    padding: 13px;
+    border: 1px solid #f003a0;
+    border-radius: 10px;
+    outline: none;
+    background-color: #ffffff00;
+    color: #ffffff;
+}
+
+.gallery_admin_board option {
+    color: #000;
+}
+
+.admin_AddImageButtton {
+    width: max-content;
+    height: 3rem;
+    outline: none;
+    border: none;
+    border-radius: 0.4rem;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: #f003a0;
+    color: #ffffff;
+    font-weight: bold
+}
+
+.GalleryImageDisplay {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 7px;
+    height: max-content;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    /* Adjust the gap between grid items as needed */
+}
+
+.GalleryImageDisplay img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    /* Needed for absolute positioning of overlay */
+}
+
+
+
+
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.popup .hidden {
+    display: none;
+}
+
+#deleteButton {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#deleteButton:hover {
+    background: darkred;
 }
