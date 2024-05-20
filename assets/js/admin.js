@@ -845,37 +845,29 @@ function showApprovedReviews() {
 // ********************************************************************************************
 // GALLERY
 // ********************************************************************************************
-
 document.querySelector('.admin_AddImageButtton').addEventListener('click', async () => {
     const fileInput = document.getElementById('galleryImage');
     const categorySelect = document.getElementById('imageCategory');
     const progressContainer = document.getElementById('progressContainer');
-    const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB in bytes
-
-    if (!progressContainer) {
-        console.error("Progress container not found.");
-        return;
-    }
+    const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
 
     if (fileInput.files.length === 0) {
         alert("Please select files to upload.");
         return;
     }
 
-    const files = fileInput.files;
+    const files = Array.from(fileInput.files);
     const category = categorySelect.value;
 
     progressContainer.innerHTML = ''; // Clear previous progress bars
 
-    Array.from(files).forEach((file, index) => {
+    files.forEach((file, index) => {
         if (file.size > MAX_FILE_SIZE) {
             alert(`File "${file.name}" exceeds the 2 MB limit and will not be uploaded.`);
             return;
         }
 
         const storageRef = firebase.storage().ref().child(`gallery/${file.name}`);
-
-        // Create a progress bar for each file
         const progressBar = document.createElement('progress');
         progressBar.id = `uploadProgress${index}`;
         progressBar.value = 0;
@@ -883,139 +875,153 @@ document.querySelector('.admin_AddImageButtton').addEventListener('click', async
         progressBar.style.width = '100%';
         progressContainer.appendChild(progressBar);
 
-        try {
-            // Upload file to Firebase Storage with progress listener
-            const uploadTask = storageRef.put(file);
+        const uploadTask = storageRef.put(file);
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                progressBar.value = progress;
+                console.log(`Upload is ${progress}% done`);
+            },
+            (error) => {
+                console.error("Error uploading image:", error);
+                alert(`Error uploading image: ${error.message}`);
+                progressBar.style.display = 'none';
+            },
+            async () => {
+                const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+                const newImageKey = firebase.database().ref().child('gallery').push().key;
+                const imageData = {
+                    url: downloadURL,
+                    category: category,
+                    name: file.name,
+                    timestamp: Date.now()
+                };
 
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    progressBar.value = progress;
-                    console.log('Upload is ' + progress + '% done');
-                },
-                (error) => {
-                    // Handle unsuccessful uploads
-                    console.error("Error uploading image:", error);
-                    alert("Error uploading image: " + error.message);
-                    progressBar.style.display = 'none';
-                },
-                async () => {
-                    // Handle successful uploads on complete
-                    const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-
-                    // Store data in Realtime Database
-                    const newImageKey = firebase.database().ref().child('gallery').push().key;
-                    const imageData = {
-                        url: downloadURL,
-                        category: category,
-                        name: file.name,
-                        timestamp: Date.now()
-                    };
-
-                    await firebase.database().ref(`gallery/${newImageKey}`).set(imageData);
-
-                    alert(`Image ${file.name} uploaded and data saved successfully!`);
-                    progressBar.style.display = 'none';
-                }
-            );
-        } catch (error) {
-            console.error("Error uploading image and saving data:", error);
-            alert("Error uploading image and saving data.");
-            progressBar.style.display = 'none';
-        }
+                await firebase.database().ref(`gallery/${newImageKey}`).set(imageData);
+                alert(`Image ${file.name} uploaded and data saved successfully!`);
+                progressBar.style.display = 'none';
+                displayImagesFromDatabase();
+            }
+        );
     });
 });
 
 
+
+
+
+
+
+
+
+// Function to fetch and display images from the database
 function displayImagesFromDatabase() {
     const galleryDisplay = document.querySelector('.GalleryImageDisplay');
+
+    // Clear existing images before fetching new ones
     galleryDisplay.innerHTML = '';
 
+    // Reference to the 'gallery' node in the database
     const galleryRef = firebase.database().ref('gallery');
+
+    // Fetch data from the 'gallery' node
     galleryRef.once('value', (snapshot) => {
         snapshot.forEach((childSnapshot) => {
             const imageData = childSnapshot.val();
+
+            // Create image element
             const imgElement = document.createElement('img');
             imgElement.src = imageData.url;
             imgElement.alt = imageData.name;
-            imgElement.dataset.key = childSnapshot.key;
 
-            imgElement.addEventListener('click', () => showImagePopup(imageData.url, imageData.name, childSnapshot.key));
-
+            // Append image to the grid
             galleryDisplay.appendChild(imgElement);
         });
     });
 }
-
-function showImagePopup(imageUrl, imageName, imageKey) {
-    const popup = document.getElementById('imagePopup');
-    const popupImage = document.getElementById('popupImage');
-    const deleteButton = document.getElementById('deleteButton');
-
-    popupImage.src = imageUrl;
-    popupImage.alt = imageName;
-    popup.classList.remove('hidden');
-
-    deleteButton.onclick = () => deleteImage(imageKey, imageName);
-
-    // Close the popup when clicking outside of the popup content
-    window.addEventListener('click', (event) => {
-        if (event.target === popup) {
-            closePopup();
-        }
-    });
-}
-
-function deleteImage(imageKey, imageName) {
-    if (confirm("Are you sure you want to delete this image?")) {
-        const storageRef = firebase.storage().ref().child(`gallery/${imageName}`);
-        
-        storageRef.delete()
-            .then(() => {
-                firebase.database().ref(`gallery/${imageKey}`).remove()
-                    .then(() => {
-                        alert("Image deleted successfully!");
-                        displayImagesFromDatabase();
-                        closePopup();
-                    })
-                    .catch((error) => {
-                        console.error("Error deleting image from database:", error);
-                        alert(`Error deleting image from database: ${error.message}`);
-                    });
-            })
-            .catch((error) => {
-                console.error("Error deleting image from storage:", error);
-                alert(`Error deleting image from storage: ${error.message}`);
-            });
-    }
-}
-
-function closePopup() {
-    const popup = document.getElementById('imagePopup');
-    popup.classList.add('hidden');
-}
-
+// Call the function to display images from the database when the page loads
 window.addEventListener('load', displayImagesFromDatabase);
 
 
 
 
+// Display the modal when an image is clicked
+document.querySelector('.GalleryImageDisplay').addEventListener('click', (event) => {
+    if (event.target.tagName === 'IMG') {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const deleteButton = document.getElementById('deleteImageButton');
+
+        modal.style.display = "block";
+        modalImage.src = event.target.src;
+        modalImage.setAttribute('data-key', event.target.getAttribute('data-key'));
+
+        // Delete button functionality
+        deleteButton.onclick = async () => {
+
+            const confirmation = confirm("Are you sure you want to delete this image?");
+            if (confirmation) {
+                const imageKey = modalImage.getAttribute('data-key');
+                const imageName = event.target.alt;
+
+                // Delete from Firebase Storage
+                const storageRef = firebase.storage().ref().child(`gallery/${imageName}`);
+                await storageRef.delete();
+
+                // Delete from Firebase Realtime Database
+                await firebase.database().ref(`gallery/${imageKey}`).remove();
+
+                // Hide the modal
+                modal.style.display = "none";
+
+                // Refresh the gallery
+                displayImagesFromDatabase();
+            }
 
 
+        };
+    }
+});
 
+// Close the modal
+document.querySelector('.close').onclick = () => {
+    document.getElementById('imageModal').style.display = "none";
+};
 
+// Close the modal when clicking outside of the modal content
+window.onclick = (event) => {
+    const modal = document.getElementById('imageModal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
 
+// Function to fetch and display images from the database
+function displayImagesFromDatabase() {
+    const galleryDisplay = document.querySelector('.GalleryImageDisplay');
 
+    // Clear existing images before fetching new ones
+    galleryDisplay.innerHTML = '';
 
+    // Reference to the 'gallery' node in the database
+    const galleryRef = firebase.database().ref('gallery');
 
+    // Fetch data from the 'gallery' node
+    galleryRef.once('value', (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const imageData = childSnapshot.val();
 
+            // Create image element
+            const imgElement = document.createElement('img');
+            imgElement.src = imageData.url;
+            imgElement.alt = imageData.name;
+            imgElement.setAttribute('data-key', childSnapshot.key); // Store the key in the data attribute
 
-
-
-
-
-
+            // Append image to the grid
+            galleryDisplay.appendChild(imgElement);
+        });
+    });
+}
 
 
 

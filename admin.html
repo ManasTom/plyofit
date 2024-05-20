@@ -183,7 +183,7 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 careers_table_area">
 
-                <button class="admin_searchButtton" onclick="refreshCertificateTable()"><i
+                <button class="admin_searchButtton" onclick="refreshPendingReviewsTable(), refreshApprovedReviewsTable()"><i
                         class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Refresh Table</button>
                 <div class="reviewToggler">
                     <button class="reviewTogglerPending" onclick="showPendingReviews()">
@@ -206,6 +206,9 @@
     </section>
 
     <section class="gallery_admin_board">
+        <h6 style="color: #fff; font-family: 'Ubuntu', sans-serif">Images more than 1Mb cannot be uploaded.</h6>
+        <h6 style="color: #fff; font-family: 'Ubuntu', sans-serif">Want to compress your images? <a target="_blank"
+                href="https://tools.illforddigital.com/webp-converter.html">click here</a>.</h6>
         <input id="galleryImage" type="file" multiple>
         <select name="" id="imageCategory">
             <option value="fitness">FITNESS</option>
@@ -217,17 +220,17 @@
         <div id="progressContainer"></div>
 
         <div class="GalleryImageDisplay">
-            <!-- gallery grid appears here -->
-
+            <!-- dynamically created images will be appended here -->
         </div>
 
-        <!-- Popup for displaying clicked image -->
-        <div id="imagePopup" class="popup hidden">
-            <div class="popup-content">
-                <img id="popupImage" src="" alt="">
-                <button id="deleteButton">DELETE</button>
-            </div>
+        <!-- Popup Modal for Image Display -->
+        <div id="imageModal" class="image-modal">
+            <span class="close">&times;</span>
+            <img class="image-modal-content" id="modalImage">
+            <button class="delete-image-button" id="deleteImageButton"><i
+                    class='fa-solid fa-trash'></i>&nbsp;&nbsp;DELETE</button>
         </div>
+
 
     </section>
 
