@@ -1140,3 +1140,59 @@ window.onload = function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    async function displayImagesFromDatabase(filter = "all") {
+        const galleryDisplay = document.querySelector('.GalleryImageDisplay');
+        galleryDisplay.innerHTML = ''; // Clear existing images
+
+        const galleryRef = firebase.database().ref('gallery');
+        const snapshot = await galleryRef.once('value');
+
+        snapshot.forEach((childSnapshot) => {
+            const imageData = childSnapshot.val();
+            if (filter === "all" || imageData.category === filter) {
+                const imgElement = document.createElement('img');
+                imgElement.src = imageData.url;
+                imgElement.alt = imageData.name;
+                imgElement.setAttribute('data-category', imageData.category);
+                galleryDisplay.appendChild(imgElement);
+            }
+        });
+    }
+
+    // Initial display of all images
+    displayImagesFromDatabase();
+
+    // Filter images based on category
+    document.querySelectorAll('.filter-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            const filter = event.target.getAttribute('data-filter');
+            displayImagesFromDatabase(filter);
+        });
+    });
