@@ -996,32 +996,32 @@ window.onclick = (event) => {
     }
 };
 
-// Function to fetch and display images from the database
-function displayImagesFromDatabase() {
-    const galleryDisplay = document.querySelector('.GalleryImageDisplay');
+// // Function to fetch and display images from the database
+// function displayImagesFromDatabase() {
+//     const galleryDisplay = document.querySelector('.GalleryImageDisplay');
 
-    // Clear existing images before fetching new ones
-    galleryDisplay.innerHTML = '';
+//     // Clear existing images before fetching new ones
+//     galleryDisplay.innerHTML = '';
 
-    // Reference to the 'gallery' node in the database
-    const galleryRef = firebase.database().ref('gallery');
+//     // Reference to the 'gallery' node in the database
+//     const galleryRef = firebase.database().ref('gallery');
 
-    // Fetch data from the 'gallery' node
-    galleryRef.once('value', (snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-            const imageData = childSnapshot.val();
+//     // Fetch data from the 'gallery' node
+//     galleryRef.once('value', (snapshot) => {
+//         snapshot.forEach((childSnapshot) => {
+//             const imageData = childSnapshot.val();
 
-            // Create image element
-            const imgElement = document.createElement('img');
-            imgElement.src = imageData.url;
-            imgElement.alt = imageData.name;
-            imgElement.setAttribute('data-key', childSnapshot.key); // Store the key in the data attribute
+//             // Create image element
+//             const imgElement = document.createElement('img');
+//             imgElement.src = imageData.url;
+//             imgElement.alt = imageData.name;
+//             imgElement.setAttribute('data-key', childSnapshot.key); // Store the key in the data attribute
 
-            // Append image to the grid
-            galleryDisplay.appendChild(imgElement);
-        });
-    });
-}
+//             // Append image to the grid
+//             galleryDisplay.appendChild(imgElement);
+//         });
+//     });
+// }
 
 
 
