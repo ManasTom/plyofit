@@ -961,15 +961,30 @@ document.querySelector('.GalleryImageDisplay').addEventListener('click', (event)
 
             const confirmation = confirm("Are you sure you want to delete this image?");
             if (confirmation) {
-                const imageKey = modalImage.getAttribute('data-key');
+                const imageUrl = modalImage.src;
                 const imageName = event.target.alt;
 
                 // Delete from Firebase Storage
                 const storageRef = firebase.storage().ref().child(`gallery/${imageName}`);
                 await storageRef.delete();
 
-                // Delete from Firebase Realtime Database
-                await firebase.database().ref(`gallery/${imageKey}`).remove();
+                // Fetch all objects from Firebase Realtime Database
+                const snapshot = await firebase.database().ref('gallery').once('value');
+                const galleryData = snapshot.val();
+
+                // Find the key of the object with the matching URL
+                let imageKeyToDelete = null;
+                for (let key in galleryData) {
+                    if (galleryData[key].url === imageUrl) {
+                        imageKeyToDelete = key;
+                        break;
+                    }
+                }
+
+                // If an object with the matching URL is found, delete it
+                if (imageKeyToDelete) {
+                    await firebase.database().ref(`gallery/${imageKeyToDelete}`).remove();
+                }
 
                 // Hide the modal
                 modal.style.display = "none";
@@ -977,11 +992,10 @@ document.querySelector('.GalleryImageDisplay').addEventListener('click', (event)
                 // Refresh the gallery
                 displayImagesFromDatabase();
             }
-
-
         };
     }
 });
+
 
 // Close the modal
 document.querySelector('.close').onclick = () => {
