@@ -4244,3 +4244,19 @@ textarea {
     width: 80%;
 }
 
+
+
+
+
+.ImageCompressor {
+    width: max-content;
+    height: 2rem;
+    outline: none;
+    border: none;
+    border-radius: 0.4rem;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color: #f003a0;
+    color: #ffffff;
+    font-weight: bold
+}

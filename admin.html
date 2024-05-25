@@ -183,9 +183,12 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 careers_table_area">
 
-                <button class="admin_searchButtton"
+                <!-- <button class="admin_searchButtton"
                     onclick="refreshPendingReviewsTable(), refreshApprovedReviewsTable()"><i
-                        class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Refresh Table</button>
+                        class="fa-solid fa-arrows-rotate"></i>&nbsp;&nbsp;Refresh Table</button> -->
+                <button onclick="window.open('index.html#home_reviews_section', '_blank')"
+                    class="admin_searchButtton">ADD NEW</button>
+
                 <div class="reviewToggler">
                     <button class="reviewTogglerPending" onclick="showPendingReviews()">
                         Pending
@@ -208,8 +211,9 @@
 
     <section class="gallery_admin_board">
         <h6 style="color: #fff; font-family: 'Ubuntu', sans-serif">Images more than 1Mb cannot be uploaded.</h6>
-        <h6 style="color: #fff; font-family: 'Ubuntu', sans-serif">Want to compress your images? <a target="_blank"
-                href="https://tools.illforddigital.com/webp-converter.html">click here</a>.</h6>
+        <h6 style="color: #fff; font-family: 'Ubuntu', sans-serif">Want to compress your images?
+            <button class="ImageCompressor" onclick="window.open('https://tools.illforddigital.com/webp-converter.html', '_blank')" ><i class="fa-regular fa-hand-pointer"></i>&nbsp;&nbsp;COMPRESS</button>
+        </h6>
         <input id="galleryImage" type="file" multiple>
         <select name="" id="imageCategory">
             <option value="fitness">FITNESS</option>
@@ -256,12 +260,12 @@
                             <p>Achieve your fitness goals with certifications, yoga instruction, trainer coaching, and
                                 more!</p>
                             <ul class="list-unstyled">
-                                <li class="icons"><a href="https://www.facebook.com/Plyofit.Fitness"><i class="fa-brands fa-facebook-f"
-                                            aria-hidden="true"></i></a></li>
+                                <li class="icons"><a href="https://www.facebook.com/Plyofit.Fitness"><i
+                                            class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
                                 <li class="icons"><a href="#"><i class="fa-brands fa-twitter"
                                             aria-hidden="true"></i></a></li>
-                                <li class="icons"><a href="https://instagram.com/plyofitindia"><i class="fa-brands fa-instagram mr-0"
-                                            aria-hidden="true"></i></a></li>
+                                <li class="icons"><a href="https://instagram.com/plyofitindia"><i
+                                            class="fa-brands fa-instagram mr-0" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
