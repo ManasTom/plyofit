@@ -29,8 +29,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="./index.html">
-                        <figure class="mb-0"><img src="./assets/img/plyofit_logo.png" alt=""
-                                class="img-fluid"></figure>
+                        <figure class="mb-0"><img src="./assets/img/plyofit_logo.png" alt="" class="img-fluid"></figure>
                     </a>
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -48,7 +47,8 @@
                                 <a class="nav-link" href="./about.html">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./courses-and-certifications.html">Courses & Certifications</a>
+                                <a class="nav-link" href="./courses-and-certifications.html">Courses &
+                                    Certifications</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="gallery.html">Gallery</a>
@@ -111,7 +111,8 @@
                         </div>
                         <div class="find_us_box_lower_portion">
                             <h5>LOCATION</h5>
-                            <p>1 St floor, RR plaza, above D needs supearket, Shettihalli, Jalahalli West, Bangalore 15</p>
+                            <p>1 St floor, RR plaza, above D needs supearket, Shettihalli, Jalahalli West, Bangalore 15
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -146,9 +147,8 @@
                         </div>
                         <div class="find_us_box_lower_portion">
                             <h5>EMAIL</h5>
-                            <p><a href="mailto:info@plyofit.in"
-                                    class="text-decoration-none">info@plyofit.in</a></p>
-                                    <p>    </p>
+                            <p><a href="mailto:info@plyofit.in" class="text-decoration-none">info@plyofit.in</a></p>
+                            <p> </p>
                         </div>
                     </div>
                 </div>
@@ -238,13 +238,14 @@
                                     <img src="./assets/img/plyofit_logo.png" alt="" class="img-fluid">
                                 </figure>
                             </a>
-                            <p>Achieve your fitness goals with certifications, yoga instruction, trainer coaching, and more!</p>
+                            <p>Achieve your fitness goals with certifications, yoga instruction, trainer coaching, and
+                                more!</p>
                             <ul class="list-unstyled">
-                                <li class="icons"><a href="#"><i class="fa-brands fa-facebook-f"
+                                <li class="icons"><a href="https://www.facebook.com/Plyofit.Fitness"><i class="fa-brands fa-facebook-f"
                                             aria-hidden="true"></i></a></li>
                                 <li class="icons"><a href="#"><i class="fa-brands fa-twitter"
                                             aria-hidden="true"></i></a></li>
-                                <li class="icons"><a href="#"><i class="fa-brands fa-instagram mr-0"
+                                <li class="icons"><a href="https://instagram.com/plyofitindia"><i class="fa-brands fa-instagram mr-0"
                                             aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
@@ -257,9 +258,9 @@
                                     <p>Monday - Saturday</p>
                                 </li>
                                 <li>
-                                    <span>03.30 am - 06.30 pm</span>
+                                    <span>09.30 am - 06.30 pm</span>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -308,7 +309,8 @@
                                     <p>Email:</p>
                                 </li>
                                 <li class="mail">
-                                    <a href="mailto:info@plyofit.in" class="text-decoration-none">plyofitacademy@gmail.com</a>
+                                    <a href="mailto:info@plyofit.in"
+                                        class="text-decoration-none">plyofitacademy@gmail.com</a>
                                 </li>
                                 <li>
                                     <p>Phone:</p>
@@ -325,7 +327,8 @@
         </div>
         <div class="bottom-portion">
             <div class="copyright col-xl-12">
-                <p>© 2024 Plyo Fit. All Rights Reserved. Designed and Developed by: <a href="https://illforddigital.com/">Illford Digital</a></p>
+                <p>© 2024 Plyo Fit. All Rights Reserved. Designed and Developed by: <a
+                        href="https://illforddigital.com/">Illford Digital</a></p>
             </div>
         </div>
         <!-- <figure class="mb-0 footer_left_icon left_icon">
@@ -335,6 +338,73 @@
             <img src="./assets/images/footer_right_icon.png" alt="" class="img-fluid">
         </figure> -->
     </section>
+
+    <!-- WHATSAPP FLOATING ICON -->
+    <div class="floating_btn">
+        <a target="_blank" href="https://wa.me/+918138050845">
+            <div class="contact_icon">
+                <i class="fa-brands fa-whatsapp my-float"></i>
+            </div>
+        </a>
+        <p class="text_icon">Talk to us?</p>
+    </div>
+    <style>
+        /* whatsapp */
+
+
+        .floating_btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        @keyframes pulsing {
+            to {
+                box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+            }
+        }
+
+        .contact_icon {
+            background-color: #42db87;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            font-size: 30px;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translatey(0px);
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 0 0 #42db87;
+            -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+            font-weight: normal;
+            font-family: sans-serif;
+            text-decoration: none !important;
+            transition: all 300ms ease-in-out;
+        }
+
+
+        .text_icon {
+            margin-top: 8px;
+            color: #707070;
+            font-size: 13px;
+        }
+    </style>
+
+
     <!-- Latest compiled JavaScript -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
