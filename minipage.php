@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate form data
     if (!empty($name) && !empty($email) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Email details
-        $to = "manastom670@gmail.com";
+        $to = "plyofitacademy@gmail.com";
         $subject = "New Enquiry on Courses";
         $headers = "From: $email\r\n";
         $headers .= "Reply-To: $email\r\n";
