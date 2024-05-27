@@ -1119,25 +1119,25 @@ window.onload = function () {
     var userActive = false;
     var inactivityTimeout;
 
-    // Function to reset inactivity timeout
+    // Function to reset inactivity timeout and update the last activity time
     function resetInactivityTimeout() {
         clearTimeout(inactivityTimeout);
-        inactivityTimeout = setTimeout(function () {
-            console.log("30 minutes of inactivity detected");
-            // Process 2
-            console.log("Process 2");
 
-            // Process 3
+        // Update the last activity timestamp in localStorage
+        localStorage.setItem('lastActivity', new Date().getTime());
+
+        inactivityTimeout = setTimeout(function () {
+            console.log("1 hour of inactivity detected");
+
             auth.signOut().then(() => {
                 // Clear any user session data
-                // For example, clear any local storage or session storage
                 localStorage.clear(); // You can use sessionStorage.clear() if you're using sessionStorage
                 sessionStorage.clear();
 
                 // Redirect to login page after logout
                 window.location.href = 'index.html';
             });
-        }, 60 * 60 * 1000); // 30 minutes
+        }, 60 * 60 * 1000); // 1 hour
     }
 
     // Event listener for user activity
@@ -1148,6 +1148,32 @@ window.onload = function () {
 
     // Start initial inactivity timeout
     resetInactivityTimeout();
+
+    // Check inactivity on page load/reload
+    var lastActivity = localStorage.getItem('lastActivity');
+    if (lastActivity) {
+        var currentTime = new Date().getTime();
+        var timeSinceLastActivity = currentTime - lastActivity;
+
+        if (timeSinceLastActivity > 60 * 60 * 1000) { // 1 hour
+            console.log("User has been inactive for more than 1 hour on page load");
+
+            auth.signOut().then(() => {
+                // Clear any user session data
+                localStorage.clear();
+                sessionStorage.clear();
+
+                // Redirect to login page after logout
+                window.location.href = 'index.html';
+            });
+        }
+    }
+
+    // Clear storage when closing the tab or browser
+    window.addEventListener("beforeunload", function () {
+        localStorage.clear();
+        sessionStorage.clear();
+    });
 };
 
 
