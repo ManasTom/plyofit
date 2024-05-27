@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Set the recipient email addresses
     $recipients = array(
-        "plyofitacademy@gmail.com"
+        "manastom670@gmail.com"
     );
 
     // Set a consistent "From" address for the confirmation email
-    $confirmationFrom = "plyofitacademy@gmail.com"; // Replace with the desired email address
+    $confirmationFrom = "manastom670@gmail.com"; // Replace with the desired email address
 
     // Set the subject of the email
     $subject = "Job Application for $vacancyName";

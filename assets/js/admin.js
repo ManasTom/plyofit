@@ -1107,73 +1107,80 @@ function downloadEncryptedJSON() {
 
 
 // ********************************************************************************************
-// funcion to logouut user after 1hr of inactivity
+// Function to logout user after 1 hour of inactivity since last user activity
 // ********************************************************************************************
 
 window.onload = function () {
-    var currentDate = new Date();
-    console.log("Page loaded at: " + currentDate);
-    console.log("Logged in");
+    // Function to handle user logout
+    function logoutUser() {
+        console.log("Logging out user due to inactivity or tab/window close");
+        auth.signOut().then(() => {
+            // Clear any user session data
+            localStorage.clear();
+            sessionStorage.clear();
 
-    // Variables to track user activity
-    var userActive = false;
-    var inactivityTimeout;
-
-    // Function to reset inactivity timeout and update the last activity time
-    function resetInactivityTimeout() {
-        clearTimeout(inactivityTimeout);
-
-        // Update the last activity timestamp in localStorage
-        localStorage.setItem('lastActivity', new Date().getTime());
-
-        inactivityTimeout = setTimeout(function () {
-            console.log("1 hour of inactivity detected");
-
-            auth.signOut().then(() => {
-                // Clear any user session data
-                localStorage.clear(); // You can use sessionStorage.clear() if you're using sessionStorage
-                sessionStorage.clear();
-
-                // Redirect to login page after logout
-                window.location.href = 'index.html';
-            });
-        }, 60 * 60 * 1000); // 1 hour
+            // Redirect to login page after logout
+            window.location.href = 'index.html';
+        });
     }
 
-    // Event listener for user activity
-    document.addEventListener("mousemove", function () {
-        userActive = true;
-        resetInactivityTimeout();
-    });
+    // Function to set login time
+    function setLoginTime() {
+        var loginTime = new Date().getTime();
+        localStorage.setItem('loginTime', loginTime);
+        console.log("Login time set at: " + new Date(loginTime));
+    }
 
-    // Start initial inactivity timeout
-    resetInactivityTimeout();
+    // Function to check inactivity based on login time
+    function checkInactivity() {
+        var loginTime = localStorage.getItem('loginTime');
+        if (loginTime) {
+            var currentTime = new Date().getTime();
+            var timeSinceLogin = currentTime - loginTime;
 
-    // Check inactivity on page load/reload
-    var lastActivity = localStorage.getItem('lastActivity');
-    if (lastActivity) {
-        var currentTime = new Date().getTime();
-        var timeSinceLastActivity = currentTime - lastActivity;
-
-        if (timeSinceLastActivity > 60 * 60 * 1000) { // 1 hour
-            console.log("User has been inactive for more than 1 hour on page load");
-
-            auth.signOut().then(() => {
-                // Clear any user session data
-                localStorage.clear();
-                sessionStorage.clear();
-
-                // Redirect to login page after logout
-                window.location.href = 'index.html';
-            });
+            if (timeSinceLogin > 1 * 20 * 1000) { // 1 hour
+                logoutUser();
+            } else {
+                // Reset the inactivity timeout to check again after the remaining time
+                var remainingTime = 1 * 20 * 1000 - timeSinceLogin;
+                clearTimeout(inactivityTimeout);
+                inactivityTimeout = setTimeout(logoutUser, remainingTime);
+            }
         }
     }
 
-    // Clear storage when closing the tab or browser
-    window.addEventListener("beforeunload", function () {
-        localStorage.clear();
-        sessionStorage.clear();
+    // Set login time on load if not already set
+    if (!localStorage.getItem('loginTime')) {
+        setLoginTime();
+    }
+
+    // Check inactivity on page load/reload
+    checkInactivity();
+
+    // Event listeners for user activity to reset login time
+    document.addEventListener("mousemove", function () {
+        setLoginTime();
+        checkInactivity();
     });
+
+    document.addEventListener("keypress", function () {
+        setLoginTime();
+        checkInactivity();
+    });
+
+    // Variable to store the inactivity timeout
+    var inactivityTimeout;
+
+    // Log out the user when closing the tab or browser
+    window.addEventListener("beforeunload", function () {
+        logoutUser();
+    });
+
+
+    window.addEventListener('unload', function () {
+        logoutUser();
+    });
+
 };
 
 
@@ -1205,34 +1212,36 @@ window.onload = function () {
 
 
 
-    async function displayImagesFromDatabase(filter = "all") {
-        const galleryDisplay = document.querySelector('.GalleryImageDisplay');
-        galleryDisplay.innerHTML = ''; // Clear existing images
 
-        const galleryRef = firebase.database().ref('gallery');
-        const snapshot = await galleryRef.once('value');
 
-        snapshot.forEach((childSnapshot) => {
-            const imageData = childSnapshot.val();
-            if (filter === "all" || imageData.category === filter) {
-                const imgElement = document.createElement('img');
-                imgElement.src = imageData.url;
-                imgElement.alt = imageData.name;
-                imgElement.setAttribute('data-category', imageData.category);
-                galleryDisplay.appendChild(imgElement);
-            }
-        });
-    }
+async function displayImagesFromDatabase(filter = "all") {
+    const galleryDisplay = document.querySelector('.GalleryImageDisplay');
+    galleryDisplay.innerHTML = ''; // Clear existing images
 
-    // Initial display of all images
-    displayImagesFromDatabase();
+    const galleryRef = firebase.database().ref('gallery');
+    const snapshot = await galleryRef.once('value');
 
-    // Filter images based on category
-    document.querySelectorAll('.filter-button').forEach(button => {
-        button.addEventListener('click', (event) => {
-            document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            const filter = event.target.getAttribute('data-filter');
-            displayImagesFromDatabase(filter);
-        });
+    snapshot.forEach((childSnapshot) => {
+        const imageData = childSnapshot.val();
+        if (filter === "all" || imageData.category === filter) {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageData.url;
+            imgElement.alt = imageData.name;
+            imgElement.setAttribute('data-category', imageData.category);
+            galleryDisplay.appendChild(imgElement);
+        }
     });
+}
+
+// Initial display of all images
+displayImagesFromDatabase();
+
+// Filter images based on category
+document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        const filter = event.target.getAttribute('data-filter');
+        displayImagesFromDatabase(filter);
+    });
+});
