@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send the email to multiple recipients
     foreach ($recipients as $recipient) {
         if (!mail($recipient, $subject, $body, $headers)) {
-            echo "Error sending email to $recipient";
+            echo "<script type='text/javascript'>alert('Error sending email to $recipient');</script>";
             exit;
         }
     }
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send the confirmation email to the applicant
     if (!mail($email, $confirmationSubject, $confirmationMessage, $confirmationHeaders)) {
-        echo "Error sending confirmation email to $email";
+        echo "<script type='text/javascript'>alert('Error sending confirmation email to $email');</script>";
         exit;
     }
 

@@ -16,9 +16,9 @@
     // Sending email to main recipient
     if (mail($to, $subject, $message, $headers)) {
 
-        echo "Your message has been sent successfully.";
+        echo "<script type='text/javascript'>alert('Your message has been sent successfully.');</script>";
     } else {
-        echo "Failed to send message. Please try again later.";
+        echo "<script type='text/javascript'>alert('Failed to send message. Please try again later.');</script>";
     }
 
 

@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send email
     if (mail($to, $subject, $email_content, $headers)) {
-        echo "Email sent successfully.";
+        echo "<script type='text/javascript'>alert('Email sent successfully.');</script>";
     } else {
-        echo "Failed to send email.";
+        echo "<script type='text/javascript'>alert('Failed to send email.');</script>";
     }
 } else {
-    echo "Invalid request.";
+    echo "<script type='text/javascript'>alert('Invalid request.');</script>";
 }
 ?>

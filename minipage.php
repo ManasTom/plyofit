@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Send email
         if (mail($to, $subject, $emailBody, $headers)) {
-            echo "Thank you for getting in touch!";
+            echo "<script type='text/javascript'>alert('Thank you for getting in touch!');</script>";
         } else {
-            echo "Sorry, something went wrong. Please try again.";
+            echo "<script type='text/javascript'>alert('Sorry, something went wrong. Please try again.');</script>";
         }
     } else {
-        echo "Please fill in all fields correctly.";
+        echo "<script type='text/javascript'>alert('Please fill in all fields correctly.');</script>";
     }
 } else {
-    echo "Invalid request method.";
+    echo "<script type='text/javascript'>alert('Invalid request method.');</script>";
 }
 ?>
