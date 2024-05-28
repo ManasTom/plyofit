@@ -1253,6 +1253,9 @@ p {
     background-color: transparent;
     color: var(--e-global-color-accent);
 }
+.team_member_box_content2:hover .card_hover_content{
+    display: block;
+}
 
 /* Home Page Contact Us Section Style */
 
@@ -4260,4 +4263,13 @@ textarea {
     background-color: #f003a0;
     color: #ffffff;
     font-weight: bold
+}
+
+
+.card_hover_content{
+    width: 100%;
+    height: max-content;
+    text-align: left;
+    padding: 2px;
+    display: none;
 }
