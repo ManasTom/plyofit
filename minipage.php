@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Send email
         if (mail($to, $subject, $emailBody, $headers)) {
-            echo "<script type='text/javascript'>alert('Thank you for getting in touch!');</script>";
+            echo "<script type='text/javascript'>alert('Thank you for getting in touch!');window.location.href = 'courses-and-certifications.html';</script>";
         } else {
-            echo "<script type='text/javascript'>alert('Sorry, something went wrong. Please try again.');</script>";
+            echo "<script type='text/javascript'>alert('Sorry, something went wrong. Please try again.');window.location.href = 'courses-and-certifications.html';</script>";
         }
     } else {
-        echo "<script type='text/javascript'>alert('Please fill in all fields correctly.');</script>";
+        echo "<script type='text/javascript'>alert('Please fill in all fields correctly.');window.location.href = 'courses-and-certifications.html';</script>";
     }
 } else {
-    echo "<script type='text/javascript'>alert('Invalid request method.');</script>";
+    echo "<script type='text/javascript'>alert('Invalid request method.');window.location.href = 'courses-and-certifications.html';</script>";
 }
 ?>
