@@ -88,14 +88,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send the confirmation email to the applicant
     if (!mail($email, $confirmationSubject, $confirmationMessage, $confirmationHeaders)) {
-        echo "<script type='text/javascript'>alert('Error sending confirmation email to $email');</script>";
+        echo "<script type='text/javascript'>alert('Error sending confirmation email to $email');window.location.href = 'careers.html';</script>";
         exit;
     }
 
     // Redirect to the thank-you page
-    echo "<script>alert('Application submitted successfully!');</script>";
+    echo "<script>alert('Application submitted successfully!');window.location.href = 'careers.html';</script>";
 } else {
     // Redirect to the error page if there's an issue with the form submission
-    echo "<script>alert('An error oocoured..!');</script>";
+    echo "<script>alert('An error oocoured..!');window.location.href = 'careers.html';</script>";
 }
 ?>

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['msg']);
     
     // Email configuration
-    $to = "plyofitacademy@gmail.com"; // Replace with your email address
+    $to = "manastom670@gmail.com"; // Replace with your email address
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send email
     if (mail($to, $subject, $email_content, $headers)) {
-        echo "<script type='text/javascript'>alert('Email sent successfully.');</script>";
+        echo "<script type='text/javascript'>alert('Email sent successfully.'); window.location.href = 'contact.html';</script>";
     } else {
-        echo "<script type='text/javascript'>alert('Failed to send email.');</script>";
+        echo "<script type='text/javascript'>alert('Failed to send email.'); window.location.href = 'contact.html';</script>";
     }
 } else {
     echo "<script type='text/javascript'>alert('Invalid request.');</script>";
