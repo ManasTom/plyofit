@@ -1138,11 +1138,11 @@ window.onload = function () {
             var currentTime = new Date().getTime();
             var timeSinceLogin = currentTime - loginTime;
 
-            if (timeSinceLogin > 1 * 20 * 1000) { // 1 hour
+            if (timeSinceLogin > 30 * 60 * 1000) { // 1 hour
                 logoutUser();
             } else {
                 // Reset the inactivity timeout to check again after the remaining time
-                var remainingTime = 1 * 20 * 1000 - timeSinceLogin;
+                var remainingTime = 30 * 60 * 1000 - timeSinceLogin;
                 clearTimeout(inactivityTimeout);
                 inactivityTimeout = setTimeout(logoutUser, remainingTime);
             }
