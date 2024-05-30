@@ -664,6 +664,13 @@ p {
 .answer {
     padding: 15px;
     display: none;
+    text-align: left;
+    color: #000;
+
+}
+
+.answer p{
+    font-weight: 500;
 }
 
 .arrow {
@@ -1214,6 +1221,8 @@ p {
 .team_member_box_lower_portion p {
     color: var(--e-global-color-text);
     margin-bottom: 14px;
+    font-weight: bold ;
+    font-size: 100%;
 }
 
 .team_member_box_lower_portion .team_member_social_icons {

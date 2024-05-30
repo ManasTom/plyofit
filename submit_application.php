@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Confirmation email to the applicant
     $confirmationSubject = "Application Confirmation";
-    $confirmationMessage = "Dear $fullName,\n\nThank you for submitting your job application for $vacancyName.\nWe have received your application and will review it shortly.\n\nBest regards,\nThe Plyofit Hiring Team";
+    $confirmationMessage = "Dear $fullName,\n\nThank you for submitting your job application for $vacancyName.\nWe have received your application and will review it shortly.\n\nBest regards,\nThe PLYO FIT Hiring Team";
 
     // Headers for the confirmation email with a consistent "From" address
     $confirmationHeaders = "From: $confirmationFrom\r\n";
