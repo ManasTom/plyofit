@@ -18,6 +18,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Ubuntu:wght@300;400&display=swap');
 
+html {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     font-family: 'Ubuntu', sans-serif;
 }
@@ -94,7 +99,7 @@ p {
 /* Home Page Header Section Style */
 
 .banner-section-outer {
-    background-image: url('../img/banner.png');
+    background-image: url('../img/banner.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -240,7 +245,7 @@ p {
 }
 
 .banner-section-outer .banner-section .banner-section-content h1 {
-    font-size: 185px;
+    font-size: 115px;
     line-height: 150px;
     margin-bottom: 0;
     margin-left: -8px;
@@ -453,7 +458,7 @@ p {
 /* Home Page About Us Section Style */
 
 .aboutus_section {
-    background-image: url('../img/home_aboutUs_bg.png');
+    background-image: url('../img/home_aboutUs_bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -461,11 +466,11 @@ p {
 }
 
 .mission_bg {
-    background-image: url('../img/about_mission_bg.png') !important;
+    background-image: url('../img/about_mission_bg.webp') !important;
 }
 
 .vision_bg {
-    background-image: url('../img/about_vision_bg.png') !important;
+    background-image: url('../img/about_vision_bg.webp') !important;
 }
 
 .aboutus_image {
@@ -581,7 +586,7 @@ p {
 /* Home Page Our Services Section Style */
 /* CSS Styling */
 .our_services_section {
-    /* background-image: url('../images/our_services_background.png'); */
+    /* background-image: url('../images/our_services_background.webp'); */
     background-color: var(--e-global-color-primary);
     background-size: cover;
     background-repeat: no-repeat;
@@ -669,7 +674,7 @@ p {
 
 }
 
-.answer p{
+.answer p {
     font-weight: 500;
 }
 
@@ -843,7 +848,7 @@ p {
 /* Home Page Testimonials Section Style */
 
 .testimonials_section {
-    background-image: url('../img/home_testimonial_bg.png');
+    background-image: url('../img/home_testimonial_bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1133,7 +1138,7 @@ p {
 }
 
 .team_member_background_section {
-    /* background-image: url('../images/team_member_background.png'); */
+    /* background-image: url('../images/team_member_background.webp'); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1221,7 +1226,7 @@ p {
 .team_member_box_lower_portion p {
     color: var(--e-global-color-text);
     margin-bottom: 14px;
-    font-weight: bold ;
+    font-weight: bold;
     font-size: 100%;
 }
 
@@ -1262,14 +1267,15 @@ p {
     background-color: transparent;
     color: var(--e-global-color-accent);
 }
-.team_member_box_content2:hover .card_hover_content{
+
+.team_member_box_content2:hover .card_hover_content {
     display: block;
 }
 
 /* Home Page Contact Us Section Style */
 
 .contact_us_section {
-    background-image: url('../img/home_contactus_bg.png');
+    background-image: url('../img/home_contactus_bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1728,7 +1734,7 @@ textarea {
 /* About Page Sub Banner Section Style */
 
 .about-banner-section {
-    background-image: url('../img/about_banner_bg.png');
+    background-image: url('../img/about_banner_bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1839,7 +1845,7 @@ textarea {
 /* About Page Statistics Section Style */
 
 .stats_section {
-    background-image: url('../images/stats_background.png');
+    background-image: url('../images/stats_background.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1913,7 +1919,7 @@ textarea {
 /* Services Page Sub Banner Section Style */
 
 .services-banner-section {
-    background-image: url('../images/services_subbanner_background.png');
+    background-image: url('../images/services_subbanner_background.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2149,7 +2155,7 @@ th {
 /* Trainers Page Sub Banner Section Style */
 
 .trainers-banner-section {
-    background-image: url('../images/trainers_subbanner_background.png');
+    background-image: url('../images/trainers_subbanner_background.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2162,7 +2168,7 @@ th {
 /* Trainers Page Quote Section Style */
 
 .quote_section {
-    background-image: url('../images/quote_background.png');
+    background-image: url('../images/quote_background.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2229,7 +2235,7 @@ th {
 /* Pricing Page Sub Banner Section Style */
 
 .pricing-banner-section {
-    background-image: url('../images/pricing_subbanner_background.png');
+    background-image: url('../images/pricing_subbanner_background.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2244,7 +2250,7 @@ th {
 /* Contact Page Sub Banner Section Style */
 
 .contact-banner-section {
-    background-image: url('../img/contact_banne_bg.png');
+    background-image: url('../img/contact_banne_bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2255,7 +2261,7 @@ th {
 }
 
 .studentsZone-banner-section {
-    background-image: url('../img/sudentZoneBanner.png');
+    background-image: url('../img/sudentZoneBanner.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -3611,7 +3617,7 @@ textarea {
 
 .Review_popup input,
 textarea {
-    width: 25rem;
+    width: 90%;
     margin-bottom: 1rem;
     padding: 2%;
     border-radius: 5px;
@@ -3631,7 +3637,6 @@ textarea {
 .Review_popup_closer {
     width: 100%;
     text-align: right;
-
 }
 
 .Review_popup a {
@@ -3649,15 +3654,42 @@ textarea {
         position: absolute;
         right: 0;
         top: 10px;
+        left: 0;
         width: max-content;
         height: auto;
         padding: 4%;
-        background-color: #a798a793;
+        background-color: #000000;
         border-radius: 20px;
         border: 2px solid #f003a0;
         margin-right: 1%;
         text-align: center;
     }
+
+    .Review_popup button {
+        border: none;
+        width: 20rem;
+        border-radius: 5px;
+        padding: 2%;
+        background-color: #f003a0;
+    }
+
+    .Review_popup_closer {
+        width: 100%;
+        text-align: right;
+        color: #ffffff;
+    }
+
+    .Review_popup input,
+    textarea {
+        width: 90%;
+        margin-bottom: 1rem;
+        padding: 2%;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #ffffff;
+    }
+
 }
 
 
@@ -4239,19 +4271,19 @@ textarea {
     margin-bottom: 5%;
 }
 
-.minipage_contact_item{
+.minipage_contact_item {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
     overflow: auto;
 }
 
-.minipage_contact_item i{
+.minipage_contact_item i {
     color: #f003a0;
     margin-right: 2px;
 }
 
-.minipage_contact_item h6{
+.minipage_contact_item h6 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 50%;
     width: 80%;
@@ -4275,7 +4307,7 @@ textarea {
 }
 
 
-.card_hover_content{
+.card_hover_content {
     width: 100%;
     height: max-content;
     text-align: left;

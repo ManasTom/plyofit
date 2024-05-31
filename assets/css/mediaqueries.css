@@ -1885,7 +1885,7 @@
         display: none;
     }
     .banner-section {
-        padding: 40px 0 60px;
+        padding: 10px 0 60px;
     }
     .banner-section-outer .banner-section .banner-section-content {
         padding-top: 50px;
@@ -1902,7 +1902,7 @@
         line-height: 34px;
     }
     .banner-section-outer .banner-section .banner-section-content h1 {
-        font-size: 90px;
+        font-size: 70px;
         line-height: 75px;
     }
     .banner-section-outer .banner-section .banner-section-content .banner-section-wrapper .white_line {
@@ -2759,8 +2759,8 @@
         line-height: 30px;
     }
     .banner-section-outer .banner-section .banner-section-content h1 {
-        font-size: 58px;
-        line-height: 65px;
+        font-size: 38px;
+        line-height: 35px;
         margin-left: 0;
     }
     .banner-section-outer .banner-section .banner-section-content p {
