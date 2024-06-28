@@ -1111,7 +1111,6 @@ function downloadEncryptedJSON() {
 // ********************************************************************************************
 
 window.onload = function () {
-    console.log('***')
     // Function to handle user logout
     function logoutUser() {
         console.log("Logging out user due to inactivity or tab/window close");
