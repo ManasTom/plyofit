@@ -9,8 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Email configuration
     $to = "plyofitacademy@gmail.com"; // Replace with your email address
+    $bcc = "dm.illforddigital@gmail.com, edb@illforddigital.com"; 
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
+    $headers .= "BCC: $bcc\r\n";
+
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
     // Email content
@@ -19,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "<p><strong>Name:</strong> $name</p>";
     $email_content .= "<p><strong>Phone:</strong> $phone</p>";
     $email_content .= "<p><strong>Email:</strong> $email</p>";
-    $email_content .= "<p><strong>Subject:</strong> $subject</p>";
+    $email_content .= "<p><strong>City:</strong> $subject</p>";
     $email_content .= "<p><strong>Message:</strong><br>$message</p>";
     $email_content .= "</body></html>";
 

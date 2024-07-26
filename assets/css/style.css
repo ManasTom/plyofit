@@ -466,7 +466,7 @@ p {
 }
 
 .mission_bg {
-    background-image: url('../img/about_mission_bg.webp') !important;
+    background-image: url('../img/Mission\ -\ mission.png') !important;
 }
 
 .vision_bg {
@@ -2250,7 +2250,7 @@ th {
 /* Contact Page Sub Banner Section Style */
 
 .contact-banner-section {
-    background-image: url('../img/contact_banne_bg.webp');
+    background-image: url('../img/contact\ us\ header_page_banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -2261,7 +2261,7 @@ th {
 }
 
 .studentsZone-banner-section {
-    background-image: url('../img/sudentZoneBanner.webp');
+    background-image: url('../img/Students\ zone-header-page-banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -4313,4 +4313,65 @@ textarea {
     text-align: left;
     padding: 2px;
     display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.courses_and_certifications-section {
+    background-image: url('../img/Course\ and\ certification-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.faq-banner-section {
+    background-image: url('../img/FAQ\ Header-page-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.faq-banner-section .banner-section .btn_wrapper {
+    padding: 16px 30px;
+}
+
+
+.career-banner-section {
+    background-image: url('../img/Career-header-page-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.career-banner-section .banner-section .btn_wrapper {
+    padding: 16px 30px;
 }

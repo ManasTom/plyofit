@@ -9,9 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($name) && !empty($email) && !empty($message) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Email details
         $to = "plyofitacademy@gmail.com";
+        $bcc = "dm.illforddigital@gmail.com, edb@illforddigital.com"; 
         $subject = "New Enquiry on Courses";
         $headers = "From: $email\r\n";
         $headers .= "Reply-To: $email\r\n";
+        $headers .= "BCC: $bcc\r\n";
         $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
         // Email body
