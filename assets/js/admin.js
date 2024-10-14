@@ -23,6 +23,7 @@ function clearVaccancyForm() {
     document.getElementById("experience").value = "";
     document.getElementById("deadline").value = "";
 }
+
 function clearCertificationsForm() {
     event.preventDefault();
     document.getElementById("certificate_id").value = "";
